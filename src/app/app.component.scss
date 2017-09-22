@@ -1,5 +1,12 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./theme/themes.scss";
 
 h1 {
   text-align: center;
+  color: mat-color($primary)
+}
+h2 {
+  color: mat-color($accent)
+}
+h3 {
+  color: mat-color($accent, 100)
 }
