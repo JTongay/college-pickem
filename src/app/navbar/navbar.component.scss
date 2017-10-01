@@ -1,0 +1,13 @@
+@import "../theme/themes.scss";
+
+.navbar {
+  background-color: mat-color($primary);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content-wrapper {
+  padding: 0 50px;
+}
