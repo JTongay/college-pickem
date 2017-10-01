@@ -2,4 +2,7 @@
   background-color: black;
   color: white;
   height: 160px;
+  &:before {
+    width: 100%;
+  }
 }

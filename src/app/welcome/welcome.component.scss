@@ -1,3 +1,17 @@
+@import "../theme/themes.scss";
+
 .welcome-section {
-  
+  .choose-game {
+    display: flex;
+    .game-links {
+      cursor: pointer;
+      border: 1px solid mat-color($accent);
+      &:hover {
+        background-color: mat-color($accent, 100);
+      }
+      .titles {
+        text-align: center;
+      }
+    }
+  }
 }
