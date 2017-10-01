@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     WelcomeComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
