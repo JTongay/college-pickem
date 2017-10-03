@@ -1,9 +1,15 @@
 @import "../theme/themes.scss";
 
 .welcome-section {
+  .pick {
+    text-align: center;
+    font-size: $headline;
+    font-family: $primaryText;
+  }
   .choose-game {
     display: flex;
     .game-links {
+      margin: 25px;
       cursor: pointer;
       border: 1px solid mat-color($accent);
       &:hover {

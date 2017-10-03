@@ -13,6 +13,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { CollegeComponent } from './college/college.component';
+import { NflComponent } from './nfl/nfl.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { MainComponent } from './main/main.component';
     NavbarComponent,
     WelcomeComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent,
+    SignupComponent,
+    CollegeComponent,
+    NflComponent
   ],
   imports: [
     BrowserModule,

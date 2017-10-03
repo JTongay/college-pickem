@@ -1,11 +1,12 @@
 <section class="welcome-section">
+  <h1 class="pick">Pick A Game</h1>
   <div class="container">
     <div class="row choose-game">
-      <div class="col-md-6 game-links">
+      <div class="col-md-6 game-links" [routerLink]="['college']">
         <h2 class="titles">College Top 25 Pick 'Em</h2>
         <img class="img-responsive logos" src="./assets/College_Football_Playoff_logo.png" alt="College Logo">
       </div>
-      <div class="col-md-6 game-links">
+      <div class="col-md-6 game-links" [routerLink]="['nfl']">
         <h2 class="titles">NFL Pick 2</h2>
         <img class="img-responsive logos" src="./assets/nfl-logo.png" alt="NFL Logo">
       </div>

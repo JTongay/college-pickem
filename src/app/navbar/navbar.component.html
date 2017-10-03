@@ -1,3 +1,9 @@
 <nav class="navbar">
-  <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+  <i class="fa fa-bars fa-2x nav-items hamburger" aria-hidden="true" (click)="openNav()"></i>
+  <i class="fa fa-user fa-2x nav-items user-icon" aria-hidden="true"> JTongay </i>
 </nav>
+<div class="side-nav" [ngClass]="{open: isOpen, close: !isOpen}">
+  <span class="side-nav-items">Login</span>
+  <span class="side-nav-items">Signup</span>
+  <span class="side-nav-items">Do it</span>
+</div>

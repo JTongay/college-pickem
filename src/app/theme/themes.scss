@@ -1,5 +1,12 @@
 @import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Roboto');
 @include mat-core();
+
+$primaryText: 'Roboto';
+$subText: 'Noto Sans';
+$headline: 36px;
+$subHeadline: 24px;
+
 $primary: mat-palette($mat-orange, 800);
 $accent:  mat-palette($mat-light-blue, 600, 100, 800);
 $warn:    mat-palette($mat-red, 600);
