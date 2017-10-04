@@ -8,15 +8,15 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   @Output() openSideNav = new EventEmitter<boolean>();
-  open: boolean = false;
+  isOpen: boolean = false;
   constructor() { }
 
   ngOnInit() {  }
 
-  openNav(isOpen: boolean) {
-    isOpen = !(isOpen)
-    this.openSideNav.emit(isOpen)
-    console.log(isOpen)
+  openNav() {
+    this.isOpen = !(this.isOpen)
+    this.openSideNav.emit(this.isOpen)
+    console.log(this.openSideNav)
   }
 
 }

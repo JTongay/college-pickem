@@ -6,12 +6,19 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  @Input() open:boolean = false;
+  @Input() isOpen: boolean;
+  openIt: boolean = false;
   constructor() {
-    console.log(open);
   }
 
   ngOnInit() {
+    console.log(this.isOpen);
+  }
+
+  openNav(open: boolean) {
+    console.log(open);
+    this.openIt = open;
+    console.log(this.openIt);
   }
 
 }

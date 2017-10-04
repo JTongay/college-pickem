@@ -1,6 +1,7 @@
 <div class="layout">
-  <app-navbar (openNav)="openNav($event)"></app-navbar>
-  <div class="container-fluid" [ngClass]="{open: open, closed: !open}">
+  <app-navbar (openSideNav)="openNav($event)"></app-navbar>
+  <h1 *ngIf="openIt">Booyah Its Open</h1>
+  <div class="container-fluid" [ngClass]="{'open': openIt, 'closed': !openIt}">
     <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>
