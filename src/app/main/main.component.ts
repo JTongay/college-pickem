@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -6,14 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  isOpen: boolean = false;
-  constructor() { }
-
-  ngOnInit() {
+  @Input() open:boolean = false;
+  constructor() {
+    console.log(open);
   }
 
-  logIt(){
-    console.log(this.isOpen)
+  ngOnInit() {
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,17 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isOpen: boolean = false;
 
+  @Output() openSideNav = new EventEmitter<boolean>();
+  open: boolean = false;
   constructor() { }
 
-  ngOnInit() {
-    this.isOpen;
-  }
+  ngOnInit() {  }
 
-  openNav() {
-    this.isOpen = !(this.isOpen);
-    console.log(this.isOpen);
+  openNav(isOpen: boolean) {
+    isOpen = !(isOpen)
+    this.openSideNav.emit(isOpen)
+    console.log(isOpen)
   }
 
 }
