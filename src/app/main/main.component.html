@@ -1,7 +1,15 @@
 <div class="layout">
-  <app-navbar (openSideNav)="openNav($event)"></app-navbar>
-  <h1 *ngIf="openIt">Booyah Its Open</h1>
-  <div class="container-fluid" [ngClass]="{'open': openIt, 'closed': !openIt}">
+  <app-navbar [isOpen]="openIt" (openSideNav)="openNav($event)"></app-navbar>
+  <div class="side-nav-container" [ngClass]="{'open': openIt, 'closed': !openIt}">
+    <span class="close-btn" (click)="closeNav($event)">
+      <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+    </span>
+    <span class="nav-items">Hi</span>
+    <span class="nav-items">Yo</span>
+    <span class="nav-items">What</span>
+    <span class="nav-items">Howdy</span>
+  </div>
+  <div class="container-fluid">
     <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>

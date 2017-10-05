@@ -8,17 +8,19 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class MainComponent implements OnInit {
   @Input() isOpen: boolean;
   openIt: boolean = false;
-  constructor() {
-  }
+
+  constructor() { }
 
   ngOnInit() {
     console.log(this.isOpen);
   }
 
   openNav(open: boolean) {
-    console.log(open);
     this.openIt = open;
-    console.log(this.openIt);
+  }
+
+  closeNav(open: boolean) {
+    this.openIt = !open;
   }
 
 }
