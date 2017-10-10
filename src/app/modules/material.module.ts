@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   MdAutocompleteModule,
   MdButtonModule,
@@ -35,6 +36,7 @@ import {
 
 @NgModule({
     imports: [
+      CommonModule,
       MdAutocompleteModule,
       MdButtonModule,
       MdButtonToggleModule,
@@ -102,4 +104,4 @@ import {
   ]
 })
 
-export class angularMaterialModule { }
+export class AngularMaterialModule { }

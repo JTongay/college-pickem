@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ApplicationRef, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { angularMaterialModule } from './modules/material.module';
-import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { routing } from './routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
+         MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule, MdFormFieldModule,
+         MaterialModule } from '@angular/material';
+import 'hammerjs';
+
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -37,10 +40,12 @@ import { FormComponent } from './form/form.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    angularMaterialModule,
+    RouterModule.forRoot(routing),
+    MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
+    MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule,
+    MdFormFieldModule,
     MaterialModule,
     BrowserAnimationsModule,
-    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
