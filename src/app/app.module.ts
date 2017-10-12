@@ -37,9 +37,9 @@ import { FormComponent } from './form/form.component';
     FormComponent
   ],
   imports: [
-    BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserModule,
     RouterModule.forRoot(routing),
     MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
     MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule,
