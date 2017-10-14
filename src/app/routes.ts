@@ -4,6 +4,7 @@ import { NflComponent } from './nfl/nfl.component';
 import { CollegeComponent } from './college/college.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -25,6 +26,10 @@ const APP_ROUTES: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'leaderboard',
+    component: LeaderboardComponent
   }
 ];
 
