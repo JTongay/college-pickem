@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ApplicationRef, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,7 +10,8 @@ import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
          MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-
+import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -38,6 +39,7 @@ import { FormComponent } from './form/form.component';
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserModule,
     RouterModule.forRoot(routing),
@@ -47,7 +49,7 @@ import { FormComponent } from './form/form.component';
     MaterialModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

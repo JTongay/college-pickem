@@ -1,18 +1,18 @@
-<form class="signup-form">
+<form class="signup-form" novalidate autocomplete="off" [formGroup]="loginForm">
   <md-form-field>
-    <input mdInput placeholder="First name" class="name">
+    <input mdInput formControlName="firstName" placeholder="First name" class="name">
   </md-form-field>
   <md-form-field>
-    <input mdInput placeholder="Last name" class="name">
+    <input mdInput formControlName="lastName" placeholder="Last name" class="name">
   </md-form-field>
   <md-form-field>
-    <input mdInput placeholder="Username" class="name">
+    <input mdInput formControlName="userName" placeholder="Username" class="name">
   </md-form-field>
   <md-form-field>
-    <input mdInput placeholder="Password" class="name">
+    <input mdInput formControlName="password" type="password" placeholder="Password" class="name">
   </md-form-field>
   <md-form-field>
-    <input mdInput placeholder="Email" class="name">
+    <input mdInput formControlName="email" placeholder="Email" class="name">
   </md-form-field>
-  <button md-raised-button color="primary" class="name">Primary</button>
+  <button md-raised-button color="primary" class="sub-button">Submit</button>
 </form>
