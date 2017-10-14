@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class FormComponent implements OnInit {
 
-  loginForm: FormGroup;
+  signupForm: FormGroup;
 
   constructor(private auth: AuthService) { }
 
@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
     const userName = new FormControl();
     const password = new FormControl();
     const email = new FormControl();
-    this.loginForm = new FormGroup({
+    this.signupForm = new FormGroup({
       firstName,
       lastName,
       userName,

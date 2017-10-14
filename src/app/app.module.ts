@@ -23,6 +23,7 @@ import { SignupComponent } from './signup/signup.component';
 import { CollegeComponent } from './college/college.component';
 import { NflComponent } from './nfl/nfl.component';
 import { FormComponent } from './form/form.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormComponent } from './form/form.component';
     SignupComponent,
     CollegeComponent,
     NflComponent,
-    FormComponent
+    FormComponent,
+    LeaderboardComponent
   ],
   imports: [
     FormsModule,

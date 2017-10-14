@@ -1,1 +1,16 @@
 @import "../theme/themes.scss";
+
+.signup {
+  .register {
+    text-align: center;
+    font-family: $primaryText;
+    font-size: $headline;
+    color: mat-color($accent);
+  }
+  .game-title {
+    text-align: center;
+    font-size: $subHeadline;
+    font-family: $primaryText;
+    color: mat-color($primary);
+  }
+}

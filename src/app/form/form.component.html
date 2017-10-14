@@ -1,4 +1,4 @@
-<form class="signup-form" novalidate autocomplete="off" [formGroup]="loginForm">
+<form class="signup-form" novalidate autocomplete="off" [formGroup]="signupForm">
   <md-form-field>
     <input mdInput formControlName="firstName" placeholder="First name" class="name">
   </md-form-field>
@@ -14,5 +14,5 @@
   <md-form-field>
     <input mdInput formControlName="email" placeholder="Email" class="name">
   </md-form-field>
-  <button md-raised-button color="primary" class="sub-button">Submit</button>
+  <button md-raised-button color="primary" type="submit" class="sub-button">Submit</button>
 </form>

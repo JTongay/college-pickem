@@ -9,4 +9,15 @@ export class UserService {
 
   constructor(private http: Http) { }
 
+  createUser(user: User): Observable<boolean> {
+    return this.http.post('', user).map((res: Response) => {
+      return res.json();
+    });
+  }
+
+  getUser(id: Number): Observable<User> {
+    return this.http.get('').map((res: Response) => {
+      return res.json();
+    });
+  };
 }
