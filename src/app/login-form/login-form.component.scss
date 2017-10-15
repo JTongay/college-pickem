@@ -1,0 +1,13 @@
+@import "../theme/themes.scss";
+
+.login-form {
+  md-form-field {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+  .sub-button {
+    display: block;
+    margin: auto;
+  }
+}

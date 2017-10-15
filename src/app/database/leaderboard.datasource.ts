@@ -10,7 +10,7 @@ export class LeaderboardDatasource extends DataSource<any> {
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<Leaderboard[]> {
-    console.log('ExampleDataSource#connect')
+    console.log('ExampleDataSource#connect');
     return this._leaderboardDatabase.dataChange;
   }
   disconnect() {}

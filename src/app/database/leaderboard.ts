@@ -30,17 +30,16 @@ const dummy = [
 export class LeaderboardDatabase {
     leaderboards: Leaderboard[];
     dataChange: BehaviorSubject<Leaderboard[]> = new BehaviorSubject<Leaderboard[]>([]);
-    // get data(): Leaderboard[] {
-    //   this.leaderboards = [];
-    //   dummy.forEach((leaderboard) => {
-    //     this.leaderboards.push(leaderboard);
-    //     this.dataChange.next(this.leaderboards);
-    //   });
-    //   return this.dataChange.value;
-    // }
-    get data(): Leaderboard[] { return this.dataChange.value }
+    get data(): Leaderboard[] { return this.dataChange.value; };
 
     constructor() {
-      this.dataChange.next(dummy)
+      this.dataChange.next(dummy);
     }
 }
+
+/* When you come back to this and need to do this with data returned from a service,
+inject the service then do the call in the constructor, subscribe to it, then call this.dataChange.next(data)
+with the returned data from the subscription.
+
+https://stackoverflow.com/questions/45014257/how-to-use-md-table-with-services-in-angular-4
+*/

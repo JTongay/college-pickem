@@ -25,6 +25,7 @@ import { NflComponent } from './nfl/nfl.component';
 import { FormComponent } from './form/form.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { TableComponent } from './table/table.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TableComponent } from './table/table.component';
     NflComponent,
     FormComponent,
     LeaderboardComponent,
-    TableComponent
+    TableComponent,
+    LoginFormComponent
   ],
   imports: [
     FormsModule,

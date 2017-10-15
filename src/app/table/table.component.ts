@@ -28,7 +28,6 @@ export class TableComponent implements OnInit {
     this.dataSource = new LeaderboardDatasource(this.exampleDatabase);
     this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
     this.changeDetector.detectChanges();
-    console.log(this.exampleDatabase);
   }
 
 }
