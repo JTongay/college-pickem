@@ -1,6 +1,7 @@
 import { Leaderboard } from '../models/Leaderboard';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {DataSource} from '@angular/cdk/table';
+import {Injectable} from '@angular/core';
 
 const dummy = [
   {position: 1, name: 'Hydrogen', weight: 5, symbol: 'H'},
@@ -25,19 +26,21 @@ const dummy = [
   {position: 20, name: 'Calcium', weight: 40, symbol: 'Ca'},
 ];
 
-
+@Injectable()
 export class LeaderboardDatabase {
     leaderboards: Leaderboard[];
     dataChange: BehaviorSubject<Leaderboard[]> = new BehaviorSubject<Leaderboard[]>([]);
-    get data(): Leaderboard[] {
-      this.leaderboards = [];
-      dummy.forEach((leaderboard) => {
-        this.leaderboards.push(leaderboard);
-        this.dataChange.next(dummy);
-      });
-      console.log(this.dataChange, "in database")
-      return this.dataChange.value;
-    }
+    // get data(): Leaderboard[] {
+    //   this.leaderboards = [];
+    //   dummy.forEach((leaderboard) => {
+    //     this.leaderboards.push(leaderboard);
+    //     this.dataChange.next(this.leaderboards);
+    //   });
+    //   return this.dataChange.value;
+    // }
+    get data(): Leaderboard[] { return this.dataChange.value }
 
-    constructor() { }
+    constructor() {
+      this.dataChange.next(dummy)
+    }
 }
