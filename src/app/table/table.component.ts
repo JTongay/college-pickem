@@ -16,19 +16,19 @@ import { LeaderboardDatasource } from '../database/leaderboard.datasource'
 })
 
 export class TableComponent implements OnInit {
-  dataSource: LeaderboardDatasource | null;
   displayedColumns: string[];
   exampleDatabase = new LeaderboardDatabase();
+  dataSource: LeaderboardDatasource | null;
 
   constructor(private changeDetector: ChangeDetectorRef) {
     // this.changeDetector.detectChanges();
   }
 
   ngOnInit() {
-    console.log(this.exampleDatabase);
     this.dataSource = new LeaderboardDatasource(this.exampleDatabase);
     this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
     this.changeDetector.detectChanges();
+    console.log(this.dataSource)
   }
 
 }

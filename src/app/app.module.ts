@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { routing } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
-         MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule, MdFormFieldModule,
+         MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule, MdFormFieldModule, MdTableModule,
          MaterialModule } from '@angular/material';
 import 'hammerjs';
 

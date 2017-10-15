@@ -1,5 +1,6 @@
 import { Leaderboard } from '../models/Leaderboard';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import {DataSource} from '@angular/cdk/table';
 
 const dummy = [
   {position: 1, name: 'Hydrogen', weight: 5, symbol: 'H'},
@@ -34,8 +35,9 @@ export class LeaderboardDatabase {
         this.leaderboards.push(leaderboard);
         this.dataChange.next(dummy);
       });
-      return this.leaderboards;
+      console.log(this.dataChange, "in database")
+      return this.dataChange.value;
     }
 
-    constructor() {}
+    constructor() { }
 }
