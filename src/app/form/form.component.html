@@ -1,18 +1,24 @@
-<form class="signup-form" novalidate autocomplete="off" [formGroup]="signupForm">
+<form class="signup-form" novalidate autocomplete="off" [formGroup]="signupForm" (ngSubmit)="sendSignup(signupForm)">
   <md-form-field>
     <input mdInput formControlName="firstName" placeholder="First name" class="name">
+    <md-hint align="end">Required</md-hint>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="lastName" placeholder="Last name" class="name">
+    <md-hint align="end">Required</md-hint>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="userName" placeholder="Username" class="name">
+    <md-hint align="end">Required</md-hint>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="password" type="password" placeholder="Password" class="name">
+    <md-hint align="end">Required</md-hint>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="email" placeholder="Email" class="name">
+    <md-hint align="end">Required</md-hint>
+    <md-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</md-error>
   </md-form-field>
   <button md-raised-button color="primary" type="submit" class="sub-button">Submit</button>
 </form>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs/Rx';
+
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-form',
@@ -9,28 +11,42 @@ import { Observable } from 'rxjs/Rx';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  firstName: FormControl;
+  lastName: FormControl;
+  userName: FormControl;
+  password: FormControl;
+  email: FormControl;
 
   signupForm: FormGroup;
 
-  constructor(private auth: AuthService) { }
+  constructor(
+    private auth: AuthService,
+    private user: UserService
+  ) { }
 
   ngOnInit() {
-    const firstName = new FormControl();
-    const lastName = new FormControl();
-    const userName = new FormControl();
-    const password = new FormControl();
-    const email = new FormControl();
+    this.firstName = new FormControl('');
+    this.lastName = new FormControl('');
+    this.userName = new FormControl('');
+    this.password = new FormControl('');
+    this.email = new FormControl('', [Validators.required, Validators.email]);
     this.signupForm = new FormGroup({
-      firstName,
-      lastName,
-      userName,
-      password,
-      email
+      firstName: this.firstName,
+      lastName: this.lastName,
+      userName: this.userName,
+      password: this.password,
+      email: this.email
     });
   }
 
-  sendSignup(){
+  getEmailErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter your email' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
+  }
 
+  sendSignup(formData: FormGroup) {
+    console.log(formData);
   }
 
 }

@@ -9,8 +9,8 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-  createUser(user: User): Observable<boolean> {
-    return this.http.post('', user).map((res: Response) => {
+  createUser(user: User): Observable<User> {
+    return this.http.post('http://localhost:3000/api/users/new', user).map((res: Response) => {
       return res.json();
     });
   }
