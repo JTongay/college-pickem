@@ -12,6 +12,7 @@ import 'hammerjs';
 
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
+import { ToastrService } from './toastr.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -55,7 +56,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     MaterialModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
