@@ -27,6 +27,8 @@ import { FormComponent } from './form/form.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { TableComponent } from './table/table.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { CollegePickComponent } from './college-pick/college-pick.component';
+import { NflPickComponent } from './nfl-pick/nfl-pick.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { LoginFormComponent } from './login-form/login-form.component';
     FormComponent,
     LeaderboardComponent,
     TableComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CollegePickComponent,
+    NflPickComponent
   ],
   imports: [
     FormsModule,
