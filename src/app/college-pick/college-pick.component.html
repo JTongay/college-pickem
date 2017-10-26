@@ -1,15 +1,35 @@
-<section>
+<section class="matchup-ncaa">
   <h1>College Matchups</h1>
-  <div class="container" *ngFor="let match of matchups.schedule">
-    <md-radio-group class="example-radio-group" [(ngModel)]="chosenGame">
-      <md-radio-button class="example-radio-button" [value]="match.away.abbrev">
-        <span *ngIf="match.away.rank !== 'unranked'">Away: <sup>{{match.away.rank}}</sup> {{match.away.team_name}}</span>
-        <span *ngIf="match.away.rank === 'unranked'">Away: {{match.away.team_name}}</span>      </md-radio-button>
-      <md-radio-button class="example-radio-button" [value]="match.home.abbrev">
-        <span *ngIf="match.home.rank !== 'unranked'">Home: <sup>{{match.home.rank}}</sup> {{match.home.team_name}}</span>
-        <span *ngIf="match.home.rank === 'unranked'">Home: {{match.home.team_name}}</span>
-      </md-radio-button>
-    </md-radio-group>
+  <div class="container" *ngFor="let match of matchups.schedule; let i = index" [attr.data-index]="i">
+    <div class="row">
+      <md-radio-group class="example-radio-group" [(ngModel)]="chosenGame">
+        <div class="col-md-5">
+          <md-radio-button class="example-radio-button" [value]="match.away.abbrev">
+            <span *ngIf="match.away.rank !== 'unranked'">
+              <span *ngFor="let location of match.away.team_location">{{location}} </span>
+              <sup>{{match.away.rank}}</sup> {{match.away.team_name}}
+            </span>
+            <span *ngIf="match.away.rank === 'unranked'">
+              <span *ngFor="let location of match.away.team_location">{{location}} </span>
+              {{match.away.team_name}}
+            </span>
+          </md-radio-button>
+        </div>
+      <div class="col-md-2">
+        <span>{{match.away.abbrev}} vs. {{match.home.abbrev}}</span>
+      </div>
+      <div class="col-md-5">
+        <md-radio-button class="example-radio-button" [value]="match.home.abbrev">
+          <span *ngIf="match.home.rank !== 'unranked'">
+            <span *ngFor="let location of match.home.team_location">{{location}} </span>
+            <sup>{{match.home.rank}}</sup> {{match.home.team_name}}</span>
+          <span *ngIf="match.home.rank === 'unranked'">
+            <span *ngFor="let location of match.home.team_location">{{location}} </span>
+            {{match.home.team_name}}
+          </span>
+        </md-radio-button>
+      </div>
+      </md-radio-group>
+    </div>
   </div>
-  <p>Your Chosen game is {{chosenGame}}</p>
 </section>
