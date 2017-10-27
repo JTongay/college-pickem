@@ -1,7 +1,7 @@
 <section class="matchup-ncaa">
   <h1>College Matchups</h1>
   <div class="container" *ngFor="let match of matchups.schedule; let i = index" [attr.data-index]="i">
-    <div class="row">
+    <div class="row matchup">
       <md-radio-group class="example-radio-group" [(ngModel)]="chosenGame">
         <div class="col-md-5">
           <md-radio-button class="example-radio-button" [value]="match.away.abbrev">
