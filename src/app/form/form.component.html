@@ -2,23 +2,28 @@
   <md-form-field>
     <input mdInput formControlName="firstName" placeholder="First name" class="name">
     <md-hint align="end">Required</md-hint>
+    <md-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</md-error>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="lastName" placeholder="Last name" class="name">
     <md-hint align="end">Required</md-hint>
+    <md-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</md-error>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="userName" placeholder="Username" class="name">
     <md-hint align="end">Required</md-hint>
+    <md-error *ngIf="userName.invalid">{{getUserNameErrorMessage()}}</md-error>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="password" type="password" placeholder="Password" class="name">
     <md-hint align="end">Required</md-hint>
+    <md-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</md-error>
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="email" placeholder="Email" class="name">
     <md-hint align="end">Required</md-hint>
     <md-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</md-error>
   </md-form-field>
-  <button md-raised-button color="primary" type="submit" class="sub-button">Submit</button>
+  <button md-raised-button color="primary" type="submit" class="sub-button" *ngIf="!loading">Submit</button>
+  <md-spinner class="sub-button" *ngIf="loading"></md-spinner>
 </form>

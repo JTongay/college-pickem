@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
   userName: FormControl;
   password: FormControl;
   email: FormControl;
+  loading: Boolean;
 
   signupForm: FormGroup;
 
@@ -25,11 +26,12 @@ export class FormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.firstName = new FormControl('');
-    this.lastName = new FormControl('');
-    this.userName = new FormControl('');
-    this.password = new FormControl('');
-    this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.loading = false;
+    this.firstName = new FormControl('', [Validators.required]);
+    this.lastName = new FormControl('', [Validators.required]);
+    this.userName = new FormControl('', [Validators.required]);
+    this.password = new FormControl('', [Validators.required]);
+    this.email = new FormControl('', [Validators.required]);
     this.signupForm = new FormGroup({
       firstName: this.firstName,
       lastName: this.lastName,
@@ -39,14 +41,32 @@ export class FormComponent implements OnInit {
     });
   }
 
-  getEmailErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter your email' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
+  private getEmailErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter your email' : '';
+  }
+
+  private getFirstNameErrorMessage() {
+    return this.firstName.hasError('required') ? 'You must enter your first name' : '';
+  }
+
+  private getLastNameErrorMessage() {
+    return this.lastName.hasError('required') ? 'You must enter your last name' : '';
+  }
+
+  private getUserNameErrorMessage() {
+    return this.userName.hasError('required') ? 'You must enter a username' : '';
+  }
+
+  private getPasswordErrorMessage() {
+    return this.password.hasError('required') ? 'You must enter a password' : '';
   }
 
   sendSignup(formData: FormGroup) {
+    this.loading = true;
     console.log(formData);
+    if (!formData.valid) {
+      this.loading = false;
+    }
   }
 
 }
