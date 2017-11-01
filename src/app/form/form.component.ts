@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs/Rx';
 
@@ -22,7 +23,8 @@ export class FormComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private user: UserService
+    private user: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -61,11 +63,19 @@ export class FormComponent implements OnInit {
     return this.password.hasError('required') ? 'You must enter a password' : '';
   }
 
-  sendSignup(formData: FormGroup) {
+  private sendSignup(formData: FormGroup) {
     this.loading = true;
     console.log(formData);
     if (!formData.valid) {
       this.loading = false;
+    } else {
+      return this.user.createUser(formData.value).subscribe(
+        (res) => {
+          console.log(res);
+          this.loading = false;
+          window.localStorage.setItem('token', res.token);
+          this.router.navigate(['']);
+        });
     }
   }
 

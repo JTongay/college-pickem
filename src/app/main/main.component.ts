@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-main',
@@ -8,10 +9,12 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class MainComponent implements OnInit {
   @Input() isOpen: boolean;
   openIt: boolean = false;
+  loggedIn: boolean;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    this.loggedIn = this.auth.isLoggedIn();
   }
 
   openNav(open: boolean) {

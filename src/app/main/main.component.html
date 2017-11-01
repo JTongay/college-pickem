@@ -5,8 +5,16 @@
       <i class="fa fa-times-circle-o" aria-hidden="true"></i>
     </span>
     <span class="nav-items" [routerLink]="['']" (click)="closeNav($event)">Home</span>
-    <span class="nav-items" [routerLink]="['signup']" (click)="closeNav($event)">Signup</span>
-    <span class="nav-items" [routerLink]="['login']" (click)="closeNav($event)">Login</span>
+    <span
+      class="nav-items"
+      [routerLink]="['signup']"
+      (click)="closeNav($event)"
+      *ngIf="!loggedIn">Signup</span>
+    <span
+      class="nav-items"
+      [routerLink]="['login']"
+      (click)="closeNav($event)"
+      *ngIf="!loggedIn">Login</span>
     <span class="nav-items" [routerLink]="['leaderboard']" (click)="closeNav($event)">Leaderboards</span>
   </div>
   <div class="container-fluid">

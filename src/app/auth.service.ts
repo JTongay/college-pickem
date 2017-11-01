@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { Router } from '@angular/router';
 import { User } from './models/User';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-  public token: String;
+  public token: string;
 
-  constructor(private http: Http) {
+  constructor(
+    private http: Http,
+    private router: Router
+  ) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -37,5 +41,13 @@ export class AuthService {
     this.token = null;
     localStorage.removeItem('currentUser');
   };
+
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('token')) {
+      return true;
+    }
+    this.router.navigate(['/login']);
+    return false;
+  }
 
 }
