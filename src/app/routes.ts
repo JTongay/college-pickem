@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { CollegePickComponent } from './college-pick/college-pick.component';
 import { NflPickComponent } from './nfl-pick/nfl-pick.component';
+import { SeasonComponent } from './season/season.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -40,6 +41,10 @@ const APP_ROUTES: Routes = [
   {
     path: 'leaderboard',
     component: LeaderboardComponent
+  },
+  {
+    path: 'season',
+    component: SeasonComponent
   }
 ];
 

@@ -16,6 +16,7 @@
       (click)="closeNav($event)"
       *ngIf="!loggedIn">Login</span>
     <span class="nav-items" [routerLink]="['leaderboard']" (click)="closeNav($event)">Leaderboards</span>
+    <span class="nav-items" [routerLink]="['season']" (click)="closeNav($event)">Season</span>
     <span class="nav-items" (click)="logout($event)" *ngIf="loggedIn">Logout</span>
   </div>
   <div class="container-fluid">
