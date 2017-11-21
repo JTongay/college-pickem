@@ -14,6 +14,7 @@ export class SeasonFormComponent implements OnInit {
   startDate: FormControl;
   endDate: FormControl;
   activeSeason: FormControl;
+  possibleLeagues: String[] = ['NFL', 'NCAA'];
 
   constructor() { }
 
@@ -27,7 +28,11 @@ export class SeasonFormComponent implements OnInit {
       startDate: this.startDate,
       endDate: this.endDate,
       activeSeason: this.activeSeason
-    })
+    });
+  }
+
+  submitSeason(formValue) {
+    console.log(formValue.value);
   }
 
 }

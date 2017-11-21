@@ -1,10 +1,17 @@
-<form action="" class="season-form" [formGroup]="seasonForm">
+<form action="" class="season-form" [formGroup]="seasonForm" (ngSubmit)="submitSeason(seasonForm)">
   <md-radio-group formControlName="league">
-    <md-radio-button [value]="NFL">
-      <span>NFL</span>
-    </md-radio-button>
-    <md-radio-button [value]="NCAA">
-      <span>NCAA</span>
+    <md-radio-button *ngFor="let league of possibleLeagues" [value]="league">
+      {{league}}
     </md-radio-button>
   </md-radio-group>
+  <md-form-field>
+    <input type="text" mdInput formControlName="startDate" placeholder="startDate">
+  </md-form-field>
+  <md-form-field>
+    <input type="text" mdInput formControlName="endDate" placeholder="endDate">
+  </md-form-field>
+  <md-form-field>
+    <input type="text" mdInput formControlName="activeSeason" placeholder="activeSeason">
+  </md-form-field>
+  <button md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
 </form>
