@@ -16,14 +16,15 @@ export class SeasonFormComponent implements OnInit {
   endDate: FormControl;
   activeSeason: FormControl;
   possibleLeagues: String[] = ['NFL', 'NCAA'];
+  possibleStatus: Map<String, boolean> = [{'active': true, 'inactive': false}];
 
   constructor() { }
 
   ngOnInit() {
     this.league = new FormControl();
-    this.startDate = new FormControl();
+    this.startDate = new FormControl(new Date(), [Validators.required]);
     this.endDate = new FormControl(new Date(), [Validators.required]);
-    this.activeSeason = new FormControl(new Date(), [Validators.required]);
+    this.activeSeason = new FormControl('', [Validators.required]);
     this.seasonForm = new FormGroup({
       league: this.league,
       startDate: this.startDate,

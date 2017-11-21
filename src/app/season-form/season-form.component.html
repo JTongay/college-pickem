@@ -5,10 +5,14 @@
     </md-radio-button>
   </md-radio-group>
   <md-form-field>
-    <input type="text" mdInput formControlName="startDate" placeholder="startDate">
+    <input mdInput [mdDatepicker]="picker" placeholder="Season Start" formControlName="startDate">
+    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+    <md-datepicker #picker></md-datepicker>
   </md-form-field>
   <md-form-field>
-    <input type="text" mdInput formControlName="endDate" placeholder="endDate">
+    <input mdInput [mdDatepicker]="picker2" placeholder="Season End" formControlName="endDate">
+    <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+    <md-datepicker #picker2></md-datepicker>
   </md-form-field>
   <md-form-field>
     <input type="text" mdInput formControlName="activeSeason" placeholder="activeSeason">
