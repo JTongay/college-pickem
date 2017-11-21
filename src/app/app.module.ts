@@ -5,14 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
 import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
          MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule, MdFormFieldModule, MdTableModule,
          MaterialModule } from '@angular/material';
-import 'hammerjs';
 
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { ToastrService } from './toastr.service';
+
+import { dateValidator } from './validators/date';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -64,7 +66,7 @@ import { SeasonFormComponent } from './season-form/season-form.component';
     MaterialModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, UserService, ToastrService],
+  providers: [AuthService, UserService, ToastrService, dateValidator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

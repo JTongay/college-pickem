@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISeason } from '../models/Season';
+import { dateValidator } from '../validators/date';
 
 @Component({
   selector: 'app-season-form',
@@ -21,8 +22,8 @@ export class SeasonFormComponent implements OnInit {
   ngOnInit() {
     this.league = new FormControl();
     this.startDate = new FormControl();
-    this.endDate = new FormControl();
-    this.activeSeason = new FormControl();
+    this.endDate = new FormControl(new Date(), [Validators.required]);
+    this.activeSeason = new FormControl(new Date(), [Validators.required]);
     this.seasonForm = new FormGroup({
       league: this.league,
       startDate: this.startDate,
