@@ -5,17 +5,19 @@
     </md-radio-button>
   </md-radio-group>
   <md-form-field>
-    <input mdInput [mdDatepicker]="picker" placeholder="Season Start" formControlName="startDate">
-    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-    <md-datepicker #picker></md-datepicker>
+    <input mdInput [mdDatepicker]="startDate" placeholder="Season Start" formControlName="startDate">
+    <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
+    <md-datepicker #startDate></md-datepicker>
   </md-form-field>
   <md-form-field>
-    <input mdInput [mdDatepicker]="picker2" placeholder="Season End" formControlName="endDate">
-    <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
-    <md-datepicker #picker2></md-datepicker>
+    <input mdInput [mdDatepicker]="endDate" placeholder="Season End" formControlName="endDate">
+    <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
+    <md-datepicker #endDate></md-datepicker>
   </md-form-field>
-  <md-form-field>
-    <input type="text" mdInput formControlName="activeSeason" placeholder="activeSeason">
-  </md-form-field>
+  <md-radio-group formControlName="activeSeason">
+    <md-radio-button *ngFor="let status of possibleStatus" [value]="status.value">
+      {{status.text}}
+    </md-radio-button>
+  </md-radio-group>  
   <button md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
 </form>

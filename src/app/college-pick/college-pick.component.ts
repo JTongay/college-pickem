@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForOf } from '@angular/common';
+import { FormGroup, FormControl, Validator } from '@angular/forms';
+
+// Sample Data
 import { matchups } from '../matchups.sample';
 
 @Component({
@@ -10,11 +12,17 @@ import { matchups } from '../matchups.sample';
 export class CollegePickComponent implements OnInit {
 
   matchups: any;
+  selectionsForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
     this.matchups = matchups;
+    this.selectionsForm = new FormGroup({});
+  }
+
+  submitSelections(formValues) {
+    console.log(formValues.value);
   }
 
 }

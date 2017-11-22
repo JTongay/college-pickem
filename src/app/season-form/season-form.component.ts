@@ -16,7 +16,16 @@ export class SeasonFormComponent implements OnInit {
   endDate: FormControl;
   activeSeason: FormControl;
   possibleLeagues: String[] = ['NFL', 'NCAA'];
-  possibleStatus: Map<String, boolean> = [{'active': true, 'inactive': false}];
+  possibleStatus: { text: string, value: boolean}[] = [
+    {
+      text: 'active',
+      value: true
+    },
+    {
+      text: 'inactive',
+      value: false
+    }
+  ];
 
   constructor() { }
 

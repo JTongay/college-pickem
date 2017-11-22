@@ -1,6 +1,6 @@
 <section class="matchup-ncaa">
   <h1>College Matchups</h1>
-  <form action="" class="picks">
+  <form action="" class="picks" [formGroup]="selectionsForm" (ngSubmit)="submitSelections(selectionsForm)">
     <div class="container" *ngFor="let match of matchups.schedule; let i = index" [attr.data-index]="i">
       <div class="row matchup">
         <md-radio-group class="example-radio-group">
@@ -31,5 +31,6 @@
         </md-radio-group>
       </div>
     </div>
+    <button md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
   </form>
 </section>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnChanges {
   @Input() isOpen: boolean;
   openIt: boolean = false;
   loggedIn: boolean;
@@ -21,6 +21,10 @@ export class MainComponent implements OnInit {
     this.loggedIn = this.auth.isLoggedIn();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+  }
+
   openNav(open: boolean) {
     this.openIt = open;
   }
@@ -32,7 +36,7 @@ export class MainComponent implements OnInit {
   logout(open: boolean) {
     this.auth.logout();
     this.openIt = !open;
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 
 }
