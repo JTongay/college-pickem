@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 import { User } from './models/User';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
   public token: string;
+  private baseUrl = 'https://football-picks-api.herokuapp.com/api';
+  private devUrl = 'http://localhost:3000/api';
 
   constructor(
     private http: Http,
@@ -18,22 +20,16 @@ export class AuthService {
     this.token = currentUser && currentUser.token;
   }
 
-  login(user: User): Observable<boolean> {
-    return this.http.post('', user).map((res: Response) => {
-      const token = res.json() && res.json().token;
-      if (token) {
-        // set that token property
-        this.token = token;
+  login(user: User): Observable<any> {
+    // const headers: Headers = new Headers({'Content-Type': 'application/json'});
+    // const options: RequestOptions = new RequestOptions({ headers });
+    const userPayload = {
+      username: user.userName,
+      password: user.password
+    };
 
-        // set token in local storage
-        localStorage.setItem('currentUser', JSON.stringify({token}));
-
-        // return the response to indicate successful login
-        return res.json();
-      } else {
-        // return the response without setting a token and display error message
-        return res.json();
-      }
+    return this.http.post(`${this.devUrl}/session/login`, userPayload).map((res: Response) => {
+      return res.json();
     });
   };
 

@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   userName: FormControl;
   password: FormControl;
   email: FormControl;
-  loading: Boolean;
+  loading: boolean;
 
   signupForm: FormGroup;
 

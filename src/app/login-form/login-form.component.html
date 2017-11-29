@@ -1,9 +1,10 @@
-<form action="" class="login-form" [formGroup]="loginForm">
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="sendLogin(loginForm)">
   <md-form-field>
     <input mdInput formControlName="userName" placeholder="Username" class="name">
   </md-form-field>
   <md-form-field>
     <input mdInput formControlName="password" type="password" placeholder="Password" class="name">
   </md-form-field>
-  <button md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
+  <button *ngIf="!loading" md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
+  <md-spinner class="sub-button" *ngIf="loading"></md-spinner>
 </form>

@@ -1,7 +1,7 @@
 <div class="example-container mat-elevation-z8">
   <md-table #table [dataSource]="dataSource">
     <ng-container mdColumnDef="position">
-        <md-header-cell *mdHeaderCellDef> No. </md-header-cell>
+        <md-header-cell *mdHeaderCellDef> Place. </md-header-cell>
         <md-cell *mdCellDef="let element"> {{element.position}} </md-cell>
       </ng-container>
 
@@ -11,7 +11,7 @@
       </ng-container>
 
       <ng-container mdColumnDef="weight">
-        <md-header-cell *mdHeaderCellDef> Weight </md-header-cell>
+        <md-header-cell *mdHeaderCellDef> Score </md-header-cell>
         <md-cell *mdCellDef="let element"> {{element.weight}} </md-cell>
       </ng-container>
 

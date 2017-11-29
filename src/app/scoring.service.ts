@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
+@Injectable()
+export class ScoringService {
+
+  baseUrl = 'https://football-picks-api.herokuapp.com/api';
+  devUrl = 'http://localhost:3000/api';
+
+  constructor(
+    private http: Http
+  ) { }
+
+  getLeaderBoard(seasonId: number, week: number): Observable<any> {
+    return this.http.get(`${this.devUrl}/seasons/${seasonId}/score/${week}/leaderboard`)
+      .map((res: Response) => {
+        res.json();
+      })
+      .catch(this.handleError);
+  }
+
+  private handleError(res: Response) {
+    return Observable.throw('Error Fam')
+  }
+
+}

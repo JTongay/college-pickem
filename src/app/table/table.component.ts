@@ -1,12 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DataSource } from '@angular/cdk/table';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/operator/map';
-import { LeaderboardDatabase } from '../database/leaderboard';
-import { Leaderboard } from '../models/Leaderboard';
+import { Component, Input } from '@angular/core';
 import { LeaderboardDatasource } from '../database/leaderboard.datasource'
 
 @Component({
@@ -15,19 +7,11 @@ import { LeaderboardDatasource } from '../database/leaderboard.datasource'
   styleUrls: ['./table.component.scss']
 })
 
-export class TableComponent implements OnInit {
-  displayedColumns: string[];
-  exampleDatabase = new LeaderboardDatabase();
-  dataSource: LeaderboardDatasource | null;
+export class TableComponent {
 
-  constructor(private changeDetector: ChangeDetectorRef) {
-    // this.changeDetector.detectChanges();
-  }
+  @Input() displayedColumns: string[];
+  @Input() dataSource: LeaderboardDatasource;
 
-  ngOnInit() {
-    this.dataSource = new LeaderboardDatasource(this.exampleDatabase);
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.changeDetector.detectChanges();
-  }
+  constructor( ) { }
 
 }
