@@ -4,14 +4,14 @@
     <ng-template mat-tab-label>
       NCAA Top 25 Picks
     </ng-template>
-    <h1>Best pasta restaurants</h1>
+    <h1>Top Scores for Week: {{dataSource.week}}</h1>
     <app-table [displayedColumns]="displayedColumns" [dataSource]="dataSource"></app-table>
   </md-tab>
   <md-tab>
     <ng-template mat-tab-label>
       NFL Pick 2
     </ng-template>
-    <h1>Terrible sushi restaurants</h1>
+    <h1>Top Scores for Week: {{dataSource.week}}</h1>
     <app-table [displayedColumns]="displayedColumns" [dataSource]="dataSource"></app-table>
   </md-tab>
 </md-tab-group>

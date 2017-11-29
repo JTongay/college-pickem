@@ -13,11 +13,10 @@ export class ScoringService {
   ) { }
 
   getLeaderBoard(seasonId: number, week: number): Observable<any> {
-    return this.http.get(`${this.devUrl}/seasons/${seasonId}/score/${week}/leaderboard`)
+    return this.http.get(`${this.devUrl}/season/${seasonId}/score/${week}/leaderboard`)
       .map((res: Response) => {
-        res.json();
-      })
-      .catch(this.handleError);
+        return res.json();
+      });
   }
 
   private handleError(res: Response) {

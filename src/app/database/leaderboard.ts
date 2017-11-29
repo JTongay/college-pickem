@@ -2,6 +2,7 @@ import { Leaderboard } from '../models/Leaderboard';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {DataSource} from '@angular/cdk/table';
 import {Injectable} from '@angular/core';
+import { ScoringService } from '../scoring.service';
 
 const dummy = [
   {position: 1, name: 'Hydrogen', weight: 5, symbol: 'H'},
@@ -32,8 +33,10 @@ export class LeaderboardDatabase {
     dataChange: BehaviorSubject<Leaderboard[]> = new BehaviorSubject<Leaderboard[]>([]);
     get data(): Leaderboard[] { return this.dataChange.value; };
 
-    constructor() {
-      this.dataChange.next(dummy);
+    constructor(
+      private scoringService: ScoringService
+    ) {
+      scoringService.getLeaderBoard(1, 1).subscribe(data => this.dataChange.next(data));
     }
 }
 

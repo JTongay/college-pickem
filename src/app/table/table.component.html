@@ -1,23 +1,18 @@
 <div class="example-container mat-elevation-z8">
   <md-table #table [dataSource]="dataSource">
-    <ng-container mdColumnDef="position">
+    <ng-container mdColumnDef="place">
         <md-header-cell *mdHeaderCellDef> Place. </md-header-cell>
-        <md-cell *mdCellDef="let element"> {{element.position}} </md-cell>
+        <md-cell *mdCellDef="let element"> {{dataSource.username}} </md-cell>
       </ng-container>
 
       <ng-container mdColumnDef="name">
         <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
-        <md-cell *mdCellDef="let element"> {{element.name}} </md-cell>
+        <md-cell *mdCellDef="let element"> {{dataSource.username}} </md-cell>
       </ng-container>
 
-      <ng-container mdColumnDef="weight">
+      <ng-container mdColumnDef="score">
         <md-header-cell *mdHeaderCellDef> Score </md-header-cell>
-        <md-cell *mdCellDef="let element"> {{element.weight}} </md-cell>
-      </ng-container>
-
-      <ng-container mdColumnDef="symbol">
-        <md-header-cell *mdHeaderCellDef> Symbol </md-header-cell>
-        <md-cell *mdCellDef="let element"> {{element.symbol}} </md-cell>
+        <md-cell *mdCellDef="let element"> {{dataSource.total_score}} </md-cell>
       </ng-container>
 
       <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
