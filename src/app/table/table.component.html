@@ -2,17 +2,17 @@
   <md-table #table [dataSource]="dataSource">
     <ng-container mdColumnDef="place">
         <md-header-cell *mdHeaderCellDef> Place. </md-header-cell>
-        <md-cell *mdCellDef="let dataSource"> {{dataSource?.username}} </md-cell>
+        <md-cell *mdCellDef="let dataSource"> {{dataSource.username}} </md-cell>
       </ng-container>
 
       <ng-container mdColumnDef="name">
         <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
-        <md-cell *mdCellDef="let dataSource"> {{dataSource?.username}} </md-cell>
+        <md-cell *mdCellDef="let dataSource"> {{dataSource.username}} </md-cell>
       </ng-container>
 
       <ng-container mdColumnDef="score">
         <md-header-cell *mdHeaderCellDef> Score </md-header-cell>
-        <md-cell *mdCellDef="let dataSource"> {{dataSource?.total_score}} </md-cell>
+        <md-cell *mdCellDef="let dataSource"> {{dataSource.total_score}} </md-cell>
       </ng-container>
 
       <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
