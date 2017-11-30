@@ -36,7 +36,7 @@ export class LeaderboardDatabase {
     constructor(
       private scoringService: ScoringService
     ) {
-      scoringService.getLeaderBoard(1, 1).subscribe(data => this.dataChange.next(data));
+      // scoringService.getLeaderBoard(1, 1).subscribe(data => this.dataChange.next(data));
     }
 }
 
@@ -46,3 +46,4 @@ with the returned data from the subscription.
 
 https://stackoverflow.com/questions/45014257/how-to-use-md-table-with-services-in-angular-4
 */
+// NOT USED

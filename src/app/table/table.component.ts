@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, OnInit } from '@angular/core';
 import { LeaderboardDatasource } from '../database/leaderboard.datasource'
 
 @Component({
@@ -7,11 +7,17 @@ import { LeaderboardDatasource } from '../database/leaderboard.datasource'
   styleUrls: ['./table.component.scss']
 })
 
-export class TableComponent {
+export class TableComponent implements OnInit {
 
   @Input() displayedColumns: string[];
   @Input() dataSource: LeaderboardDatasource;
 
-  constructor( ) { }
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+  ) { }
+
+  ngOnInit() {
+    this.changeDetector.detectChanges();
+  }
 
 }
