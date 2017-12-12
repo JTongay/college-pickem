@@ -1,34 +1,36 @@
 <section class="matchup-ncaa">
   <h1>College Matchups</h1>
   <form action="" class="picks" [formGroup]="selectionsForm" (ngSubmit)="submitSelections(selectionsForm)">
-    <div class="container" *ngFor="let match of matchups.schedule; let i = index" [attr.data-index]="i">
-      <div class="row matchup">
-        <md-radio-group class="example-radio-group">
-          <div class="col-md-5">
-            <md-radio-button class="example-radio-button" [value]="match.away.abbrev">
-              <span *ngIf="match.away.rank !== 'unranked'">
-                  <span *ngFor="let location of match.away.team_location">{{location}} </span>
-              <sup>{{match.away.rank}}</sup> {{match.away.team_name}}
-              </span>
-              <span *ngIf="match.away.rank === 'unranked'">
-                  <span *ngFor="let location of match.away.team_location">{{location}} </span> {{match.away.team_name}}
-              </span>
-            </md-radio-button>
-          </div>
-          <div class="col-md-2">
-            <span>{{match.away.abbrev}} vs. {{match.home.abbrev}}</span>
-          </div>
-          <div class="col-md-5">
-            <md-radio-button class="example-radio-button" [value]="match.home.abbrev">
-              <span *ngIf="match.home.rank !== 'unranked'">
-                  <span *ngFor="let location of match.home.team_location">{{location}} </span>
-              <sup>{{match.home.rank}}</sup> {{match.home.team_name}}</span>
-              <span *ngIf="match.home.rank === 'unranked'">
-                    <span *ngFor="let location of match.home.team_location">{{location}} </span> {{match.home.team_name}}
-              </span>
-            </md-radio-button>
-          </div>
-        </md-radio-group>
+    <div>
+      <div class="container" *ngFor="let match of matchups.schedule; let i = index" [attr.data-index]="i">
+        <div class="row matchup">
+          <md-radio-group class="example-radio-group">
+            <div class="col-md-5">
+              <md-radio-button class="example-radio-button" [value]="match.away.abbrev">
+                <span *ngIf="match.away.rank !== 'unranked'">
+                    <span *ngFor="let location of match.away.team_location">{{location}} </span>
+                <sup>{{match.away.rank}}</sup> {{match.away.team_name}}
+                </span>
+                <span *ngIf="match.away.rank === 'unranked'">
+                    <span *ngFor="let location of match.away.team_location">{{location}} </span> {{match.away.team_name}}
+                </span>
+              </md-radio-button>
+            </div>
+            <div class="col-md-2">
+              <span>{{match.away.abbrev}} vs. {{match.home.abbrev}}</span>
+            </div>
+            <div class="col-md-5">
+              <md-radio-button class="example-radio-button" [value]="match.home.abbrev">
+                <span *ngIf="match.home.rank !== 'unranked'">
+                    <span *ngFor="let location of match.home.team_location">{{location}} </span>
+                <sup>{{match.home.rank}}</sup> {{match.home.team_name}}</span>
+                <span *ngIf="match.home.rank === 'unranked'">
+                      <span *ngFor="let location of match.home.team_location">{{location}} </span> {{match.home.team_name}}
+                </span>
+              </md-radio-button>
+            </div>
+          </md-radio-group>
+        </div>
       </div>
     </div>
     <button md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
