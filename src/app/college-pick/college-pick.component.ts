@@ -13,8 +13,6 @@ export class CollegePickComponent implements OnInit, OnChanges {
 
   matchups: any;
   selectionsForm: FormGroup;
-  selectGame: FormControl;
-  selectedGames: FormArray;
 
   constructor(
     private fb: FormBuilder
@@ -22,20 +20,17 @@ export class CollegePickComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.matchups = matchups;
-    this.selectionsForm = this.fb.group({
-      selectedGame: this.fb.array([this.createGame()])
+    const selectGame = new FormControl();
+    const matchupNumber = new FormControl();
+    this.selectionsForm = new FormGroup({
+      selectGame,
+      matchupNumber
     });
-    console.log(this);
+    console.log(this.selectionsForm);
   }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
-  }
-
-  createGame(): FormGroup {
-    return this.fb.group({
-      matchups: this.matchups
-    });
   }
 
   submitSelections(formValues) {
