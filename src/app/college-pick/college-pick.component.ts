@@ -21,12 +21,15 @@ export class CollegePickComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.matchups = matchups;
     const selectGame = new FormControl();
-    const matchupNumber = new FormControl();
+    const matchupNumber = new FormControl('1');
+    const matchup = new FormArray([])
     this.selectionsForm = new FormGroup({
       selectGame,
-      matchupNumber
+      matchupNumber,
+      matchup
     });
-    console.log(this.selectionsForm);
+    console.log(this);
+    this.initForm();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -36,5 +39,20 @@ export class CollegePickComponent implements OnInit, OnChanges {
   submitSelections(formValues) {
     console.log(formValues.value);
   }
+
+  initForm(): void {
+    const formControls = this.selectionsForm.get('matchup');
+    this.matchups.schedule.forEach((game) => {
+      formControls.value.push(this.createGamesFormGroup(game));
+      console.log(formControls);
+    });
+  }
+
+  createGamesFormGroup(game) {
+    return this.fb.group({
+      gamePick: [game]
+    });
+  }
+
 
 }

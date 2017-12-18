@@ -5,10 +5,11 @@
         [formGroup]="selectionsForm"
         (ngSubmit)="submitSelections(selectionsForm)"
         *ngFor="let match of matchups.schedule; let i = index"
-        [attr.data-index]="i">
+        [attr.data-index]="i"
+        [formGroupName]="i">
       <div class="container">
         <div class="row matchup">
-          <md-radio-group formControlName="selectGame" class="example-radio-group">
+          <md-radio-group formControlName="selectGame" class="example-radio-group" [attr.name]="i">
             <div class="col-md-5">
               <md-radio-button class="example-radio-button" [value]="match.away.abbrev">
                 <span *ngIf="match.away.rank !== 'unranked'">
@@ -36,7 +37,6 @@
           </md-radio-group>
         </div>
       </div>
-    <input type="hidden" formControlName="matchupNumber" [value]="i">
     <button md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
   </form>
 </section>
