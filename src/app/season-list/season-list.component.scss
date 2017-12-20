@@ -1,0 +1,28 @@
+.season-list {
+  .season-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .deactivate {
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: blue;
+      }
+      &:active {
+        color: red;
+      }
+    }
+
+    .activate {
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: blue;
+      }
+      &:active {
+        color: red;
+      }
+    }
+  }
+}

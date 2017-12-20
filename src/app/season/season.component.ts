@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { SeasonService } from '../season.service';
+import { ISeason } from '../models/Season';
 
 @Component({
   selector: 'app-season',
@@ -8,9 +9,17 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SeasonComponent implements OnInit {
 
-  constructor() { }
+  seasonList: ISeason[];
+
+  constructor(
+    private seasonService: SeasonService
+  ) { }
 
   ngOnInit() {
+    this.seasonService.getSeasons().subscribe((res) => {
+      console.log(res);
+      this.seasonList = res.response;
+    })
   }
 
 }

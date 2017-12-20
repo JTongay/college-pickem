@@ -13,6 +13,7 @@ import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { ToastrService } from './toastr.service';
+import { SeasonService } from './season.service';
 
 import { dateValidator } from './validators/date';
 
@@ -33,6 +34,7 @@ import { CollegePickComponent } from './college-pick/college-pick.component';
 import { NflPickComponent } from './nfl-pick/nfl-pick.component';
 import { SeasonComponent } from './season/season.component';
 import { SeasonFormComponent } from './season-form/season-form.component';
+import { SeasonListComponent } from './season-list/season-list.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { SeasonFormComponent } from './season-form/season-form.component';
     CollegePickComponent,
     NflPickComponent,
     SeasonComponent,
-    SeasonFormComponent
+    SeasonFormComponent,
+    SeasonListComponent
   ],
   imports: [
     FormsModule,
@@ -66,7 +69,7 @@ import { SeasonFormComponent } from './season-form/season-form.component';
     MaterialModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, UserService, ToastrService, dateValidator],
+  providers: [AuthService, UserService, ToastrService, dateValidator, SeasonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

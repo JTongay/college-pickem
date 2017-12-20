@@ -1,0 +1,10 @@
+<section class="season-list">
+  <h1>List of seasons</h1>
+  <div *ngFor="let season of seasonList" class="season-list-container">
+    <p>{{season.league}}</p>
+    <p>{{season.start_date}}</p>
+    <p>{{season.end_date}}</p>
+    <p class="deactivate" *ngIf="season.active">deactivate</p>
+    <p class="activate" *ngIf="!season.active">activate</p>
+  </div>
+</section>
