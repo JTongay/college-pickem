@@ -17,10 +17,28 @@ export class SeasonService {
     return this.http.post(`${this.devUrl}/season/create`, seasonData).map((res: Response) => {
       return res.json();
     });
-  }
+  };
 
   getSeasons(): Observable<any> {
     return this.http.get(`${this.devUrl}/season`).map((res: Response) => {
+      return res.json();
+    });
+  };
+
+  activateSeason(seasonId: number): Observable<any> {
+    const requestBody = {
+      id: seasonId
+    };
+    return this.http.put(`${this.devUrl}/season/activate`, requestBody).map((res: Response) => {
+      return res.json();
+    });
+  }
+  deactivateSeason(seasonId: number): Observable<any> {
+    const requestBody = {
+      id: seasonId
+    };
+    console.log(requestBody);
+    return this.http.put(`${this.devUrl}/season/deactivate`, requestBody).map((res: Response) => {
       return res.json();
     });
   }

@@ -4,7 +4,7 @@
     <p>{{season.league}}</p>
     <p>{{season.start_date}}</p>
     <p>{{season.end_date}}</p>
-    <p class="deactivate" *ngIf="season.active">deactivate</p>
-    <p class="activate" *ngIf="!season.active">activate</p>
+    <p class="deactivate" *ngIf="season.active_season" (click)="deactivateSeason(season.id)">deactivate</p>
+    <p class="activate" *ngIf="!season.active_season" (click)="activateSeason(season.id)">activate</p>
   </div>
 </section>

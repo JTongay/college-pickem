@@ -35,6 +35,7 @@ import { NflPickComponent } from './nfl-pick/nfl-pick.component';
 import { SeasonComponent } from './season/season.component';
 import { SeasonFormComponent } from './season-form/season-form.component';
 import { SeasonListComponent } from './season-list/season-list.component';
+import { DialogWrapperComponent } from './dialog-wrapper/dialog-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SeasonListComponent } from './season-list/season-list.component';
     NflPickComponent,
     SeasonComponent,
     SeasonFormComponent,
-    SeasonListComponent
+    SeasonListComponent,
+    DialogWrapperComponent
   ],
   imports: [
     FormsModule,
@@ -69,6 +71,7 @@ import { SeasonListComponent } from './season-list/season-list.component';
     MaterialModule,
     BrowserAnimationsModule,
   ],
+  entryComponents: [DialogWrapperComponent],
   providers: [AuthService, UserService, ToastrService, dateValidator, SeasonService],
   bootstrap: [AppComponent]
 })
