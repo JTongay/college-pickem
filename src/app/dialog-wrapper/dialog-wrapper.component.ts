@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -8,12 +8,15 @@ import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 })
 export class DialogWrapperComponent {
 
+  @Input() activated: boolean;
+
   constructor(
     private dialogRef: MdDialogRef<DialogWrapperComponent>,
     @Inject(MD_DIALOG_DATA) private dialogData: any
   ) { }
 
   closeDialog(): void {
+    console.log(this.activated)
     this.dialogRef.close();
   }
 

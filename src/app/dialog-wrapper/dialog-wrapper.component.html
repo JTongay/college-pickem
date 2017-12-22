@@ -1,2 +1,3 @@
-<p>Are you sure?</p>
+<p *ngIf="!activated">This season has been deactivated</p>
+<p *ngIf="activated">This season has been activated</p>
 <button md-raised-button color="accent" type="submit" class="sub-button" (click)="closeDialog()">Ok</button>

@@ -20,7 +20,8 @@ export class SeasonListComponent {
   deactivateSeason(seasonId: number): void {
     console.log('deactivate');
     const dialogRef = this.dialog.open(DialogWrapperComponent, {
-      width: '250px'
+      width: '250px',
+      data: { activated: false }
     });
 
     // deactivate the season
@@ -37,7 +38,8 @@ export class SeasonListComponent {
   activateSeason(seasonId: number): void {
     console.log('deactivate');
     const dialogRef = this.dialog.open(DialogWrapperComponent, {
-      width: '250px'
+      width: '250px',
+      data: { activated: true }
     });
 
     // activate the season
