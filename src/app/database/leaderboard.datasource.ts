@@ -2,8 +2,7 @@ import { DataSource } from '@angular/cdk/table';
 import { LeaderboardDatabase } from './leaderboard';
 import { Leaderboard } from '../models/Leaderboard';
 import { Observable } from 'rxjs/Observable';
-import {logging} from 'selenium-webdriver';
-import {ScoringService} from '../scoring.service';
+import { ScoringService } from '../scoring.service';
 
 export class LeaderboardDatasource extends DataSource<any> {
 

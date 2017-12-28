@@ -1,22 +1,35 @@
-import { Component, Input } from '@angular/core';
-import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import { Component, Input, ChangeDetectorRef, OnInit } from '@angular/core';
+import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { DialogWrapperComponent } from '../dialog-wrapper/dialog-wrapper.component';
-import { ISeason } from '../models/Season';
+import { ISeason, ISeasonData } from '../models/Season';
 import { SeasonService } from '../season.service';
+import { SeasonDatasource } from '../database/seasons.datasource';
+import { DataSource } from '@angular/cdk/table';
+
 
 @Component({
   selector: 'app-season-list',
   templateUrl: './season-list.component.html',
-  styleUrls: ['./season-list.component.scss']
+  styleUrls: ['./season-list.component.scss'],
+  providers: [SeasonService]
+
 })
-export class SeasonListComponent {
+export class SeasonListComponent implements OnInit {
 
   @Input() seasonList: ISeason;
+  dataSource: SeasonDatasource | null;
 
   constructor(
     private dialog: MdDialog,
-    private seasonService: SeasonService
+    private seasonService: SeasonService,
+    private changeDetectorRef: ChangeDetectorRef
   ) { }
+
+  ngOnInit() {
+    this.dataSource = new SeasonDatasource(this.seasonService);
+    this.changeDetectorRef.markForCheck();
+  }
+
   deactivateSeason(seasonId: number): void {
     console.log('deactivate');
     const dialogRef = this.dialog.open(DialogWrapperComponent, {
