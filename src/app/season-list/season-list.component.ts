@@ -18,16 +18,18 @@ export class SeasonListComponent implements OnInit {
 
   @Input() seasonList: ISeason;
   dataSource: SeasonDatasource | null;
+  displayedColumns: string[];
 
   constructor(
     private dialog: MdDialog,
     private seasonService: SeasonService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
     this.dataSource = new SeasonDatasource(this.seasonService);
-    this.changeDetectorRef.markForCheck();
+    this.displayedColumns = ['League', 'Start Date', 'End Date', 'Active Season', 'Activate/Deactivate'];
+    this.changeDetector.markForCheck();
   }
 
   deactivateSeason(seasonId: number): void {

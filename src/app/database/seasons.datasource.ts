@@ -11,6 +11,7 @@ export class SeasonDatasource extends DataSource<any> {
     }
 
     connect(): Observable<any> {
+        console.log('what')
         return this.seasonService.getSeasons();
     }
     disconnect(): void {}
