@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { ISeason } from './models/Season';
+import { ISeason, ISeasonData } from './models/Season';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
@@ -20,8 +20,8 @@ export class SeasonService {
   };
 
   getSeasons(): Observable<any> {
-    return this.http.get(`${this.devUrl}/season`).map((res: Response) => {
-      return res.json();
+    return this.http.get(`${this.devUrl}/season`).map((res: any) => {
+      return res.json().response;
     });
   };
 

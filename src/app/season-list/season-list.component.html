@@ -9,61 +9,40 @@
   </div>
   <div class="example-container mat-elevation-z8">
     <md-table #table [dataSource]="dataSource" mdSort>
-  
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-  
-      <!-- ID Column -->
+      
       <ng-container mdColumnDef="League">
         <md-header-cell *mdHeaderCellDef md-sort-header> League </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{dataSource.league}} </md-cell>
+        <md-cell *mdCellDef="let dataSource"> {{dataSource.league}} </md-cell>
       </ng-container>
   
-      <!-- Progress Column -->
       <ng-container mdColumnDef="Start Date">
         <md-header-cell *mdHeaderCellDef md-sort-header> Start Date </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{dataSource.start_date | date:short}}% </md-cell>
+        <md-cell *mdCellDef="let dataSource"> {{dataSource.start_date | date:short}}% </md-cell>
       </ng-container>
   
-      <!-- Name Column -->
       <ng-container mdColumnDef="End Date">
         <md-header-cell *mdHeaderCellDef md-sort-header> End Date </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{dataSource.end_date | date:short}} </md-cell>
-      </ng-container>
-  
-      <!-- Color Column -->
-      <ng-container mdColumnDef="Active Season">
-        <md-header-cell *mdHeaderCellDef md-sort-header> Active Season </md-header-cell>
-        <md-cell *mdCellDef="let row" [style.color]="row.color"> Yasss </md-cell>
+        <md-cell *mdCellDef="let dataSource"> {{dataSource.end_date | date:short}} </md-cell>
       </ng-container>
 
-      <!-- Color Column -->
+      <ng-container mdColumnDef="Active Season">
+        <md-header-cell *mdHeaderCellDef md-sort-header> Active Season </md-header-cell>
+        <md-cell *mdCellDef="let dataSource">
+          <span *ngIf="dataSource.active_season">Yes</span>
+          <span *ngIf="!dataSource.active_season">No</span>
+        </md-cell>
+      </ng-container>
+
       <ng-container mdColumnDef="Activate/Deactivate">
         <md-header-cell *mdHeaderCellDef md-sort-header> Activate/Deactivate </md-header-cell>
-        <md-cell *mdCellDef="let row" [style.color]="row.color"> true </md-cell>
+        <md-cell *mdCellDef="let dataSource">
+          <span *ngIf="dataSource.active_season" (click)="deactivateSeason(dataSource.id)" class="deactivate">Deactivate</span>
+          <span *ngIf="!dataSource.active_season" (click)="activateSeason(dataSource.id)" class="activate">Activate</span>
+        </md-cell>
       </ng-container>
   
       <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-      <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+      <md-row *mdRowDef="let dataSource; columns: displayedColumns;"></md-row>
     </md-table>
   </div>
-  <table mdSort class="table-container">
-    <tr>
-      <th md-sort-header="name">League</th>
-      <th md-sort-header="calories">Start Date</th>
-      <th md-sort-header="fat">End Date</th>
-      <th md-sort-header="carbs">Status</th>
-      <th md-sort-header="protein">Activate/Deactivate</th>
-    </tr>
-    <tr *ngFor="let season of seasonList">
-      <td>{{season.league}}</td>
-      <td>{{season.start_date | date:short}}</td>
-      <td>{{season.end_date | date:short}}</td>
-      <td *ngIf="season.active_season">Active</td>
-      <td *ngIf="!season.active_season">Inactive</td>
-      <td class="deactivate" *ngIf="season.active_season" (click)="deactivateSeason(season.id)">deactivate</td>
-      <td class="activate" *ngIf="!season.active_season" (click)="activateSeason(season.id)">activate</td>
-    </tr>
-  </table>
-
 </section>

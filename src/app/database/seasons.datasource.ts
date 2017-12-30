@@ -10,8 +10,13 @@ export class SeasonDatasource extends DataSource<any> {
         super();
     }
 
-    connect(): Observable<any> {
-        console.log('what')
+    connector() {
+        // return this.seasonService.getSeasons().subscribe((data) => {
+        //     return data.response;
+        // });
+    }
+
+    connect(): any {
         return this.seasonService.getSeasons();
     }
     disconnect(): void {}

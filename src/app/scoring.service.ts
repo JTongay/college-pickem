@@ -15,7 +15,6 @@ export class ScoringService {
   getLeaderBoard(seasonId: number, week: number): Observable<any> {
     return this.http.get(`${this.devUrl}/season/${seasonId}/score/${week}/leaderboard`)
       .map((res: Response) => {
-        console.log(res.json())
         return res.json();
       });
   }

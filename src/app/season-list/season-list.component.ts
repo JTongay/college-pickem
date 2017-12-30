@@ -30,6 +30,7 @@ export class SeasonListComponent implements OnInit {
     this.dataSource = new SeasonDatasource(this.seasonService);
     this.displayedColumns = ['League', 'Start Date', 'End Date', 'Active Season', 'Activate/Deactivate'];
     this.changeDetector.markForCheck();
+    console.log(this.dataSource);
   }
 
   deactivateSeason(seasonId: number): void {
@@ -45,7 +46,7 @@ export class SeasonListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       console.log('called after closed');
       this.seasonService.getSeasons().subscribe((data) => {
-        this.seasonList = data.response;
+        this.seasonList = data;
       });
     });
   }
@@ -63,7 +64,7 @@ export class SeasonListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       console.log('called after closed');
       this.seasonService.getSeasons().subscribe((data) => {
-        this.seasonList = data.response;
+        this.seasonList = data;
       });
     });
   };
