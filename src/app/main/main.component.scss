@@ -1,43 +1,46 @@
 @import "../theme/themes.scss";
 
-.side-nav-container {
-    background-color: mat-color($accent, 800);
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 30;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-  .nav-items {
-      padding: 8px 8px 8px 32px;
+.layout {
+  height: 100vh;
+  .side-nav-container {
+      background-color: mat-color($accent, 800);
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 30;
+      top: 0;
+      left: 0;
+      overflow-x: hidden;
+      padding-top: 60px;
+      transition: 0.5s;
+    .nav-items {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: mat-color($primary);
+        display: block;
+        transition: 0.3s;
+        text-align: center;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+  
+    .close-btn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
       text-decoration: none;
-      font-size: 25px;
-      color: mat-color($primary);
-      display: block;
-      transition: 0.3s;
-      text-align: center;
-      border: 1px solid black;
       cursor: pointer;
+    }
   }
-
-  .close-btn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    text-decoration: none;
-    cursor: pointer;
+  
+  .open {
+    width: 250px;
   }
-}
-
-.open {
-  width: 250px;
-}
-
-.closed {
-  width: 0;
+  
+  .closed {
+    width: 0;
+  }
 }
