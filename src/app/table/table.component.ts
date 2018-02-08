@@ -16,7 +16,7 @@ export class TableComponent implements OnInit {
     private changeDetector: ChangeDetectorRef,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.changeDetector.detectChanges();
   }
 

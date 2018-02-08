@@ -11,13 +11,13 @@ import { SeasonService } from '../season.service';
 })
 export class SeasonFormComponent implements OnInit {
 
-  seasonForm: FormGroup;
-  league: FormControl;
-  startDate: FormControl;
-  endDate: FormControl;
-  activeSeason: FormControl;
-  possibleLeagues: String[] = ['NFL', 'NCAA'];
-  possibleStatus: { text: string, value: boolean}[] = [
+  private seasonForm: FormGroup;
+  private league: FormControl;
+  private startDate: FormControl;
+  private endDate: FormControl;
+  private activeSeason: FormControl;
+  private possibleLeagues: String[] = ['NFL', 'NCAA'];
+  private possibleStatus: { text: string, value: boolean}[] = [
     {
       text: 'active',
       value: true
@@ -32,7 +32,7 @@ export class SeasonFormComponent implements OnInit {
     private seasonService: SeasonService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.league = new FormControl();
     this.startDate = new FormControl(new Date(), [Validators.required]);
     this.endDate = new FormControl(new Date(), [Validators.required]);
@@ -45,7 +45,7 @@ export class SeasonFormComponent implements OnInit {
     });
   }
 
-  submitSeason(formValue) {
+  submitSeason(formValue): void {
     console.log(formValue.value);
   }
 

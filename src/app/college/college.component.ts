@@ -11,10 +11,10 @@ export class CollegeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  doIt() {
+  doIt(): void {
 
   }
 

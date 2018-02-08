@@ -1,7 +1,9 @@
 @import "../theme/themes.scss";
 
 .layout {
-  height: 100vh;
+  min-height: 100%;
+  clear: both;
+  height: inherit;
   .side-nav-container {
       background-color: mat-color($accent, 800);
       height: 100%;

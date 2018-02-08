@@ -11,9 +11,9 @@ export class NavbarComponent implements OnInit {
   @Input() isOpen: boolean = false;
   constructor() { }
 
-  ngOnInit() {  }
+  ngOnInit(): void {  }
 
-  openNav() {
+  openNav(): void {
     this.isOpen = !(this.isOpen);
     this.openSideNav.emit(this.isOpen);
   }

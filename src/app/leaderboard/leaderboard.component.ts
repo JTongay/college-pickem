@@ -16,15 +16,15 @@ import { LeaderboardDatasource } from '../database/leaderboard.datasource';
   providers: [ScoringService]
 })
 export class LeaderboardComponent implements OnInit {
-  displayedColumns: string[];
-  dataSource: LeaderboardDatasource | null;
+  private displayedColumns: string[];
+  private dataSource: LeaderboardDatasource | null;
 
   constructor(
     private changeDetector: ChangeDetectorRef,
     private scoringService: ScoringService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataSource = new LeaderboardDatasource(this.scoringService);
     this.displayedColumns = ['place', 'name', 'score'];
     this.changeDetector.markForCheck();

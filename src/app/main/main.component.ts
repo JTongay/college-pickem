@@ -9,31 +9,31 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit, OnChanges {
   @Input() isOpen: boolean;
-  openIt: boolean = false;
-  loggedIn: boolean;
+  private openIt: boolean = false;
+  private loggedIn: boolean;
 
   constructor(
     private auth: AuthService,
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loggedIn = this.auth.isLoggedIn();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
 
-  openNav(open: boolean) {
+  openNav(open: boolean): void {
     this.openIt = open;
   }
 
-  closeNav(open: boolean) {
+  closeNav(open: boolean): void {
     this.openIt = !open;
   }
 
-  logout(open: boolean) {
+  logout(open: boolean): void {
     this.auth.logout();
     this.openIt = !open;
     this.router.navigate(['']);

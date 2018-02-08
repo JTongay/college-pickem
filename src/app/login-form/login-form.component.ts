@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -10,15 +10,15 @@ import { Router } from '@angular/router'
 })
 export class LoginFormComponent implements OnInit {
 
-  loginForm: FormGroup;
-  loading: boolean;
+  private loginForm: FormGroup;
+  private loading: boolean;
 
   constructor(
     private auth: AuthService,
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loading = false;
     const userName = new FormControl();
     const password = new FormControl();
@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  sendLogin (formValues: FormGroup) {
+  sendLogin (formValues: FormGroup): void {
     this.loading = true;
     this.auth.login(formValues.value).subscribe((res) => {
       localStorage.setItem('token', res.token);

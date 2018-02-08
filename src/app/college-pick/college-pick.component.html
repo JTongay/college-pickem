@@ -2,33 +2,33 @@
   <h1>College Matchups</h1>
   <form novalidate
         class="picks"
-        *ngFor="let match of matchups.schedule; let i = index"
         #submitPicksForm="ngForm"
-        [attr.data-index]="i">
+        (ngSubmit)="submitSelections(submitPicksForm.value)">
       <div class="container">
         <div class="row matchup">
-          <md-radio-group class="example-radio-group" [attr.name]="i">
+          <md-radio-group class="example-radio-group">
             <div class="col-md-5">
-              <md-radio-button class="example-radio-button" [value]="match.away.abbrev">
-                <span *ngIf="match.away.rank !== 'unranked'">
-                    <span *ngFor="let location of match.away.team_location">{{location}} </span>
-                <sup>{{match.away.rank}}</sup> {{match.away.team_name}}
+              <md-radio-button class="example-radio-button" 
+              [value]="currentMatchup.away">
+                <span *ngIf="currentMatchup.away.rank !== 'unranked'">
+                    <span *ngFor="let location of currentMatchup.away.team_location">{{location}} </span>
+                <sup>{{currentMatchup.away.rank}}</sup> {{currentMatchup.away.team_name}}
                 </span>
-                <span *ngIf="match.away.rank === 'unranked'">
-                    <span *ngFor="let location of match.away.team_location">{{location}} </span> {{match.away.team_name}}
+                <span *ngIf="currentMatchup.away.rank === 'unranked'">
+                    <span *ngFor="let location of currentMatchup.away.team_location">{{location}} </span> {{currentMatchup.away.team_name}}
                 </span>
               </md-radio-button>
             </div>
             <div class="col-md-2">
-              <span>{{match.away.abbrev}} vs. {{match.home.abbrev}}</span>
+              <span>{{currentMatchup.away.abbrev}} vs. {{currentMatchup.home.abbrev}}</span>
             </div>
             <div class="col-md-5">
-              <md-radio-button class="example-radio-button" [value]="match.home.abbrev">
-                <span *ngIf="match.home.rank !== 'unranked'">
-                    <span *ngFor="let location of match.home.team_location">{{location}} </span>
-                <sup>{{match.home.rank}}</sup> {{match.home.team_name}}</span>
-                <span *ngIf="match.home.rank === 'unranked'">
-                      <span *ngFor="let location of match.home.team_location">{{location}} </span> {{match.home.team_name}}
+              <md-radio-button class="example-radio-button" [value]="currentMatchup.home">
+                <span *ngIf="currentMatchup.home.rank !== 'unranked'">
+                    <span *ngFor="let location of currentMatchup.home.team_location">{{location}} </span>
+                <sup>{{currentMatchup.home.rank}}</sup> {{currentMatchup.home.team_name}}</span>
+                <span *ngIf="currentMatchup.home.rank === 'unranked'">
+                      <span *ngFor="let location of currentMatchup.home.team_location">{{location}} </span> {{currentMatchup.home.team_name}}
                 </span>
               </md-radio-button>
             </div>

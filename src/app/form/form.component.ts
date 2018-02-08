@@ -12,14 +12,14 @@ import { UserService } from '../user.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  firstName: FormControl;
-  lastName: FormControl;
-  userName: FormControl;
-  password: FormControl;
-  email: FormControl;
-  loading: boolean;
+  private firstName: FormControl;
+  private lastName: FormControl;
+  private userName: FormControl;
+  private password: FormControl;
+  private email: FormControl;
+  private loading: boolean;
 
-  signupForm: FormGroup;
+  private signupForm: FormGroup;
 
   constructor(
     private auth: AuthService,
@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loading = false;
     this.firstName = new FormControl('', [Validators.required]);
     this.lastName = new FormControl('', [Validators.required]);
@@ -43,23 +43,23 @@ export class FormComponent implements OnInit {
     });
   }
 
-  private getEmailErrorMessage() {
+  private getEmailErrorMessage(): string {
     return this.email.hasError('required') ? 'You must enter your email' : '';
   }
 
-  private getFirstNameErrorMessage() {
+  private getFirstNameErrorMessage(): string {
     return this.firstName.hasError('required') ? 'You must enter your first name' : '';
   }
 
-  private getLastNameErrorMessage() {
+  private getLastNameErrorMessage(): string {
     return this.lastName.hasError('required') ? 'You must enter your last name' : '';
   }
 
-  private getUserNameErrorMessage() {
+  private getUserNameErrorMessage(): string {
     return this.userName.hasError('required') ? 'You must enter a username' : '';
   }
 
-  private getPasswordErrorMessage() {
+  private getPasswordErrorMessage(): string {
     return this.password.hasError('required') ? 'You must enter a password' : '';
   }
 
@@ -68,6 +68,7 @@ export class FormComponent implements OnInit {
     console.log(formData);
     if (!formData.valid) {
       this.loading = false;
+      return;
     } else {
       return this.user.createUser(formData.value).subscribe(
         (res) => {

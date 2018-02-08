@@ -17,8 +17,8 @@ import { DataSource } from '@angular/cdk/table';
 export class SeasonListComponent implements OnInit {
 
   @Input() seasonList: ISeason;
-  dataSource: SeasonDatasource | null;
-  displayedColumns: string[];
+  private dataSource: SeasonDatasource | null;
+  private displayedColumns: string[];
 
   constructor(
     private dialog: MdDialog,
@@ -26,11 +26,10 @@ export class SeasonListComponent implements OnInit {
     private changeDetector: ChangeDetectorRef
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataSource = new SeasonDatasource(this.seasonService);
     this.displayedColumns = ['League', 'Start Date', 'End Date', 'Active Season', 'Activate/Deactivate'];
     this.changeDetector.markForCheck();
-    console.log(this.dataSource);
   }
 
   deactivateSeason(seasonId: number): void {

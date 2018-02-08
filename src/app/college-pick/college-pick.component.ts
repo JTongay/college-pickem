@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validator, FormBuilder } from '@angular/forms';
+import { Matchup } from '../models/Matchup';
 
 // Sample Data
 import { matchups } from '../matchups.sample';
@@ -11,18 +12,22 @@ import { matchups } from '../matchups.sample';
 })
 export class CollegePickComponent implements OnInit {
 
-  matchups: any;
+  private matchups: any;
+  private currentMatchup: Matchup;
+  private matchupNumber: number = 0;
 
   constructor(
     private fb: FormBuilder
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.matchups = matchups;
+    this.currentMatchup = this.matchups.schedule[this.matchupNumber];
+    console.log(this.currentMatchup);
   }
 
-  submitSelections(formValues) {
-    console.log(formValues.value);
+  public submitSelections(formValues): void {
+    console.log(formValues);
   }
 
 }

@@ -9,13 +9,13 @@ import { ISeason } from '../models/Season';
 })
 export class SeasonComponent implements OnInit {
 
-  seasonList: ISeason[];
+  private seasonList: ISeason[];
 
   constructor(
     private seasonService: SeasonService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.seasonService.getSeasons().subscribe((res) => {
       console.log(res);
       this.seasonList = res.response;

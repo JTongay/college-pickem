@@ -15,7 +15,7 @@ import { UserService } from './user.service';
 import { ToastrService } from './toastr.service';
 import { SeasonService } from './season.service';
 
-import { dateValidator } from './validators/date';
+import { DateValidator } from './validators/date';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -72,7 +72,7 @@ import { DialogWrapperComponent } from './dialog-wrapper/dialog-wrapper.componen
     BrowserAnimationsModule,
   ],
   entryComponents: [DialogWrapperComponent],
-  providers: [AuthService, UserService, ToastrService, dateValidator, SeasonService],
+  providers: [AuthService, UserService, ToastrService, DateValidator, SeasonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
