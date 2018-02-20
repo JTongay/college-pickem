@@ -3,13 +3,13 @@
   <form novalidate
         class="picks"
         #submitPicksForm="ngForm"
-        (ngSubmit)="submitSelections(submitPicksForm.value)">
+        (ngSubmit)="submitSelections(makePick)">
       <div class="container">
         <div class="row matchup">
-          <md-radio-group class="example-radio-group">
+          <md-radio-group class="example-radio-group" [(ngModel)]="makePick" [ngModelOptions]="{standalone: true}">
             <div class="col-md-5">
               <md-radio-button class="example-radio-button" 
-              [value]="currentMatchup.away">
+              [value]="currentMatchup.away.team_name">
                 <span *ngIf="currentMatchup.away.rank !== 'unranked'">
                     <span *ngFor="let location of currentMatchup.away.team_location">{{location}} </span>
                 <sup>{{currentMatchup.away.rank}}</sup> {{currentMatchup.away.team_name}}
@@ -23,7 +23,7 @@
               <span>{{currentMatchup.away.abbrev}} vs. {{currentMatchup.home.abbrev}}</span>
             </div>
             <div class="col-md-5">
-              <md-radio-button class="example-radio-button" [value]="currentMatchup.home">
+              <md-radio-button class="example-radio-button" [value]="currentMatchup.home.team_name">
                 <span *ngIf="currentMatchup.home.rank !== 'unranked'">
                     <span *ngFor="let location of currentMatchup.home.team_location">{{location}} </span>
                 <sup>{{currentMatchup.home.rank}}</sup> {{currentMatchup.home.team_name}}</span>

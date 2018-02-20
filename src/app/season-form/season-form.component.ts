@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISeason } from '../models/Season';
-import { dateValidator } from '../validators/date';
+import { DateValidator } from '../validators/date';
 import { SeasonService } from '../season.service';
 
 @Component({
