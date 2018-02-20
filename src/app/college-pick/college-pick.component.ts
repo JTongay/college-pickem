@@ -46,9 +46,13 @@ export class CollegePickComponent implements OnInit {
   public submitSelections(formValues): void {
     console.log(formValues);
     this.matchupNumber++;
-    this.currentMatchup = this.matchups.schedule[this.matchupNumber];
-    this.makePick = null;
-    console.log(this.matchupNumber);
+    if (this.matchupNumber > this.matchups.schedule.length) {
+      return
+    } else {
+      this.currentMatchup = this.matchups.schedule[this.matchupNumber];
+      this.makePick = null;
+      console.log(this.matchupNumber);
+    }
   }
 
 }

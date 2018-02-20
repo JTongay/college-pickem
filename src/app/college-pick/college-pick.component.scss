@@ -4,6 +4,9 @@
   padding: 45px;
   .matchup {
     border: 1px dotted black;
-    padding: 10px;
+    padding: 45px;
+    .team-img {
+      margin: 0 auto;
+    }
   }
 }
