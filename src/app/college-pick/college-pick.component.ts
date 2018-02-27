@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validator, FormBuilder, NgModel } from '@angular/forms';
 import { Matchup } from '../models/Matchup';
 
+import { PicksService } from '../picks.service';
+
 // Sample Data
 import { matchups } from '../matchups.sample';
 
@@ -15,15 +17,18 @@ export class CollegePickComponent implements OnInit {
   private matchups: any;
   private _currentMatchup: Matchup;
   private _matchupNumber: number = 0;
+  private _submitting: boolean;
   public makePick: NgModel;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private picksService: PicksService
   ) { }
 
   ngOnInit(): void {
     this.matchups = matchups;
     this.currentMatchup = this.matchups.schedule[this.matchupNumber];
+    this.submitting = false;
     console.log(this.currentMatchup);
   }
 
@@ -43,14 +48,24 @@ export class CollegePickComponent implements OnInit {
     return this._currentMatchup;
   }
 
+  set submitting(value: boolean) {
+    this._submitting = value;
+  }
+
+  get submitting(): boolean {
+    return this._submitting;
+  }
+
   public submitSelections(formValues): void {
     console.log(formValues);
     this.matchupNumber++;
+    this.submitting = true;
     if (this.matchupNumber > this.matchups.schedule.length) {
       return
     } else {
       this.currentMatchup = this.matchups.schedule[this.matchupNumber];
       this.makePick = null;
+      this.submitting = false;
       console.log(this.matchupNumber);
     }
   }

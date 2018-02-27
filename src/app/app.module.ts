@@ -14,6 +14,8 @@ import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { ToastrService } from './toastr.service';
 import { SeasonService } from './season.service';
+import { ScoringService } from './scoring.service';
+import { PicksService } from './picks.service';
 
 import { DateValidator } from './validators/date';
 
@@ -72,7 +74,15 @@ import { DialogWrapperComponent } from './dialog-wrapper/dialog-wrapper.componen
     BrowserAnimationsModule,
   ],
   entryComponents: [DialogWrapperComponent],
-  providers: [AuthService, UserService, ToastrService, DateValidator, SeasonService],
+  providers: [
+    AuthService,
+    UserService,
+    ToastrService,
+    DateValidator,
+    SeasonService,
+    ScoringService,
+    PicksService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

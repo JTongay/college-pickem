@@ -3,10 +3,16 @@
 .matchup-ncaa {
   padding: 45px;
   .matchup {
-    border: 1px dotted black;
     padding: 45px;
     .team-img {
       margin: 0 auto;
+      width: 200px;
+      height: 175px;
     }
   }
+  .versus {
+      text-align: center;
+      margin: 0 auto;
+      font-size: $subHeadline;
+    }
 }

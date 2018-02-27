@@ -8,10 +8,42 @@ export class SeasonService {
 
   private baseUrl = 'https://football-picks-api.herokuapp.com/api';
   private devUrl = 'http://localhost:3000/api';
+  private _currentCollegeSeason: ISeason;
+  private _currentNflSeason: ISeason;
 
   constructor(
     private http: Http
   ) { }
+
+  get currentCollegeSeason(): ISeason {
+    return this._currentCollegeSeason;
+  }
+
+  set currentCollegeSeason(value: ISeason) {
+    this._currentCollegeSeason = value;
+  }
+
+  get currentNflSeason(): ISeason {
+    return this._currentNflSeason;
+  }
+
+  set currentNflSeason(value: ISeason) {
+    this._currentNflSeason = value;
+  }
+
+  public getCurrentCollegeSeason(): Observable<ISeason> {
+    return this.http.get(`${this.devUrl}/college`).map((res: Response) => {
+      this.currentCollegeSeason = res.json();
+      return this.currentCollegeSeason;
+    });
+  }
+
+  public getCurrentNflSeason(): Observable<ISeason> {
+    return this.http.get(`${this.devUrl}/nfl`).map((res: Response) => {
+      this.currentNflSeason = res.json();
+      return this.currentNflSeason;
+    });
+  }
 
   createSeason(seasonData: ISeason): Observable<Response> {
     return this.http.post(`${this.devUrl}/season/create`, seasonData).map((res: Response) => {

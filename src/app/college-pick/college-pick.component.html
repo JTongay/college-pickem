@@ -22,7 +22,7 @@
               </md-radio-button>
             </div>
             <div class="col-md-2">
-              <span>{{currentMatchup.away.abbrev}} vs. {{currentMatchup.home.abbrev}}</span>
+              <p class="versus">VS</p>
             </div>
             <div class="col-md-5">
               <md-radio-button class="example-radio-button" [value]="currentMatchup.home.team_name" required>
@@ -39,6 +39,10 @@
         </div>
       </div>
     <!-- <button [disabled]="!makePick" md-raised-button color="accent" type="submit" class="sub-button">Submit</button> -->
-    <button md-raised-button color="accent" type="submit" class="sub-button">Submit</button>
+    <h3 class="versus">{{currentMatchup.away.abbrev}} vs. {{currentMatchup.home.abbrev}}</h3>
+    <button md-raised-button color="accent" type="submit" class="sub-button">
+      <span *ngIf="!submitting">Submit</span>
+      <md-spinner *ngIf="submitting"></md-spinner>
+    </button>
   </form>
 </section>
