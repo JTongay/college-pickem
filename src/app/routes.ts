@@ -8,11 +8,16 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { CollegePickComponent } from './college-pick/college-pick.component';
 import { NflPickComponent } from './nfl-pick/nfl-pick.component';
 import { SeasonComponent } from './season/season.component';
+import { GameLandingComponent } from './game-landing/game-landing.component';
 
 const APP_ROUTES: Routes = [
   {
     path: '',
     component: WelcomeComponent
+  },
+  {
+    path: 'picks',
+    component: GameLandingComponent
   },
   {
     path: 'nfl',

@@ -31,33 +31,37 @@ export class SeasonService {
     this._currentNflSeason = value;
   }
 
-  public getCurrentCollegeSeason(): Observable<ISeason> {
-    return this.http.get(`${this.devUrl}/college`).map((res: Response) => {
+  public getCurrentCollegeSeason(): any {
+    return this.http.get(`${this.devUrl}/season/college`).map((res: Response) => {
       this.currentCollegeSeason = res.json();
       return this.currentCollegeSeason;
+    }).subscribe((data: ISeason) => {
+      console.log(data);
     });
   }
 
-  public getCurrentNflSeason(): Observable<ISeason> {
-    return this.http.get(`${this.devUrl}/nfl`).map((res: Response) => {
+  public getCurrentNflSeason(): any {
+    return this.http.get(`${this.devUrl}/season/nfl`).map((res: Response) => {
       this.currentNflSeason = res.json();
       return this.currentNflSeason;
+    }).subscribe((data: ISeason) => {
+      console.log(data);
     });
   }
 
-  createSeason(seasonData: ISeason): Observable<Response> {
+  public createSeason(seasonData: ISeason): Observable<Response> {
     return this.http.post(`${this.devUrl}/season/create`, seasonData).map((res: Response) => {
       return res.json();
     });
   };
 
-  getSeasons(): Observable<any> {
+  public getSeasons(): Observable<any> {
     return this.http.get(`${this.devUrl}/season`).map((res: any) => {
       return res.json().response;
     });
   };
 
-  activateSeason(seasonId: number): Observable<Response> {
+  public activateSeason(seasonId: number): Observable<Response> {
     const requestBody = {
       id: seasonId
     };
@@ -65,7 +69,7 @@ export class SeasonService {
       return res.json();
     });
   }
-  deactivateSeason(seasonId: number): Observable<Response> {
+  public deactivateSeason(seasonId: number): Observable<Response> {
     const requestBody = {
       id: seasonId
     };

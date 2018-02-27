@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validator, FormBuilder, NgModel } from '@angular/forms';
-import { Matchup } from '../models/Matchup';
 
+// Interfaces
+import { Matchup } from '../models/Matchup';
+import { ISeason } from '../models/Season';
+
+// Services
 import { PicksService } from '../picks.service';
+import { SeasonService } from '../season.service';
 
 // Sample Data
 import { matchups } from '../matchups.sample';
@@ -18,14 +23,17 @@ export class CollegePickComponent implements OnInit {
   private _currentMatchup: Matchup;
   private _matchupNumber: number = 0;
   private _submitting: boolean;
+  private _currentSeason: ISeason;
   public makePick: NgModel;
 
   constructor(
     private fb: FormBuilder,
-    private picksService: PicksService
+    private picksService: PicksService,
+    private seasonService: SeasonService
   ) { }
 
   ngOnInit(): void {
+    this.seasonService.getCurrentCollegeSeason()
     this.matchups = matchups;
     this.currentMatchup = this.matchups.schedule[this.matchupNumber];
     this.submitting = false;

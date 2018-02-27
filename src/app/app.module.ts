@@ -38,6 +38,7 @@ import { SeasonComponent } from './season/season.component';
 import { SeasonFormComponent } from './season-form/season-form.component';
 import { SeasonListComponent } from './season-list/season-list.component';
 import { DialogWrapperComponent } from './dialog-wrapper/dialog-wrapper.component';
+import { GameLandingComponent } from './game-landing/game-landing.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { DialogWrapperComponent } from './dialog-wrapper/dialog-wrapper.componen
     SeasonComponent,
     SeasonFormComponent,
     SeasonListComponent,
-    DialogWrapperComponent
+    DialogWrapperComponent,
+    GameLandingComponent
   ],
   imports: [
     FormsModule,

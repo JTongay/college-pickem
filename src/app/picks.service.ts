@@ -13,7 +13,7 @@ export class PicksService {
   ) { }
 
   public getMatchups(seasonId: string): Observable<Response> {
-    return this.http.get(`/season/${seasonId}/matchup`).map((res: Response) => {
+    return this.http.get(`${this.devUrl}/season/${seasonId}/matchup`).map((res: Response) => {
       return res.json();
     });
   }
