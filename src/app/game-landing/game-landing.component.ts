@@ -8,11 +8,11 @@ import { ISeason } from '../models/Season';
   templateUrl: './game-landing.component.html',
   styleUrls: ['./game-landing.component.scss']
 })
+
 export class GameLandingComponent implements OnInit {
 
   private _nflSeason: ISeason;
   private _collegeSeason: ISeason;
-
 
 	public get nflSeason(): ISeason {
 		return this._nflSeason;
@@ -22,7 +22,6 @@ export class GameLandingComponent implements OnInit {
 		this._nflSeason = value;
 	}
   
-
 	public get collegeSeason(): ISeason {
 		return this._collegeSeason;
 	}
@@ -30,19 +29,18 @@ export class GameLandingComponent implements OnInit {
 	public set collegeSeason(value: ISeason) {
 		this._collegeSeason = value;
 	}
-  
 
   constructor(
     private seasonService: SeasonService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.seasonService.getCurrentCollegeSeason();
     this.seasonService.getCurrentNflSeason();
     this.collegeSeason = this.seasonService.currentCollegeSeason;
     this.nflSeason = this.seasonService.currentNflSeason;
-    console.log(this.collegeSeason)
-    console.log(this.nflSeason)
+    console.log(this.collegeSeason);
+    console.log(this.nflSeason);
   }
 
 }

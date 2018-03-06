@@ -31,21 +31,17 @@ export class SeasonService {
     this._currentNflSeason = value;
   }
 
-  public getCurrentCollegeSeason(): any {
+  public getCurrentCollegeSeason(): Observable<ISeason> {
     return this.http.get(`${this.devUrl}/season/college`).map((res: Response) => {
       this.currentCollegeSeason = res.json();
       return this.currentCollegeSeason;
-    }).subscribe((data: ISeason) => {
-      console.log(data);
     });
   }
 
-  public getCurrentNflSeason(): any {
+  public getCurrentNflSeason(): Observable<ISeason> {
     return this.http.get(`${this.devUrl}/season/nfl`).map((res: Response) => {
       this.currentNflSeason = res.json();
       return this.currentNflSeason;
-    }).subscribe((data: ISeason) => {
-      console.log(data);
     });
   }
 

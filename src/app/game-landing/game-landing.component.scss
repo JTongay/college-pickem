@@ -1,0 +1,20 @@
+@import "../theme/themes.scss";
+
+.game-landing-section {
+  h1 {
+    text-align: center;
+  }
+  .main-body {
+    img {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  .game-buttons {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
