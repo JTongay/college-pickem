@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectorRef, OnInit } from '@angular/core';
-import { LeaderboardDatasource } from '../database/leaderboard.datasource'
+import { LeaderboardDatasource } from '../database/leaderboard.datasource';
 
 @Component({
   selector: 'app-table',

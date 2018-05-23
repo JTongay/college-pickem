@@ -1,14 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MdTableModule } from '@angular/material';
 
 import { TableComponent } from './table.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-describe('TableComponent', () => {
+fdescribe('TableComponent', () => {
   let component: TableComponent;
   let fixture: ComponentFixture<TableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableComponent ]
+      declarations: [
+        TableComponent
+      ],
+      providers: [],
+      imports: [
+        MdTableModule,
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));
@@ -16,6 +25,7 @@ describe('TableComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
+    component.displayedColumns = ['place', 'name', 'score'];
     fixture.detectChanges();
   });
 
