@@ -4,7 +4,7 @@ import { MdTableModule } from '@angular/material';
 import { TableComponent } from './table.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-fdescribe('TableComponent', () => {
+describe('TableComponent', () => {
   let component: TableComponent;
   let fixture: ComponentFixture<TableComponent>;
 
@@ -32,4 +32,8 @@ fdescribe('TableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  // it('should detect a data source', () => {
+  //   component.dataSource = mockDataSource;
+  //   expect(component.dataSource).toBeDefined();
+  // });
 });
