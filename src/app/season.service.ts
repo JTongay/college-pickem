@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+// import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { ISeason, ISeasonData } from './models/Season';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SeasonService {
 
-  private baseUrl = 'https://football-picks-api.herokuapp.com/api';
-  private devUrl = 'http://localhost:3000/api';
+  private readonly baseUrl = 'https://football-picks-api.herokuapp.com/api';
+  private readonly devUrl = 'http://localhost:3000/api';
   private _currentCollegeSeason: ISeason;
   private _currentNflSeason: ISeason;
 
   constructor(
-    private http: Http
+    private httpClient: HttpClient
   ) { }
 
   get currentCollegeSeason(): ISeason {
@@ -31,47 +32,39 @@ export class SeasonService {
     this._currentNflSeason = value;
   }
 
+  // public getCurrentCollegeSeason(): Observable<ISeason> {
+  //   return this.httpClient.get(`${this.devUrl}/season/college`).map((res: Response) => {
+  //     this.currentCollegeSeason = res.json();
+  //     return this.currentCollegeSeason;
+  //   });
+  // }
   public getCurrentCollegeSeason(): Observable<ISeason> {
-    return this.http.get(`${this.devUrl}/season/college`).map((res: Response) => {
-      this.currentCollegeSeason = res.json();
-      return this.currentCollegeSeason;
-    });
+    return this.httpClient.get(`${this.devUrl}/season/college`);
   }
 
   public getCurrentNflSeason(): Observable<ISeason> {
-    return this.http.get(`${this.devUrl}/season/nfl`).map((res: Response) => {
-      this.currentNflSeason = res.json();
-      return this.currentNflSeason;
-    });
+    return this.httpClient.get(`${this.devUrl}/season/nfl`);
   }
 
-  public createSeason(seasonData: ISeason): Observable<Response> {
-    return this.http.post(`${this.devUrl}/season/create`, seasonData).map((res: Response) => {
-      return res.json();
-    });
+  public createSeason(seasonData: ISeason): Observable<any> {
+    return this.httpClient.post(`${this.devUrl}/season/create`, seasonData);
   };
 
   public getSeasons(): Observable<any> {
-    return this.http.get(`${this.devUrl}/season`).map((res: any) => {
-      return res.json().response;
-    });
+    return this.httpClient.get(`${this.devUrl}/season`);
   };
 
-  public activateSeason(seasonId: number): Observable<Response> {
+  public activateSeason(seasonId: number): Observable<any> {
     const requestBody = {
       id: seasonId
     };
-    return this.http.put(`${this.devUrl}/season/activate`, requestBody).map((res: Response) => {
-      return res.json();
-    });
+    return this.httpClient.put(`${this.devUrl}/season/activate`, requestBody);
   }
-  public deactivateSeason(seasonId: number): Observable<Response> {
+  public deactivateSeason(seasonId: number): Observable<any> {
     const requestBody = {
       id: seasonId
     };
     console.log(requestBody);
-    return this.http.put(`${this.devUrl}/season/deactivate`, requestBody).map((res: Response) => {
-      return res.json();
-    });
+    return this.httpClient.put(`${this.devUrl}/season/deactivate`, requestBody);
   }
 }

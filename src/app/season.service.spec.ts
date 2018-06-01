@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { SeasonService } from './season.service';
 
-describe('SeasonService', () => {
+fdescribe('SeasonService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [SeasonService]

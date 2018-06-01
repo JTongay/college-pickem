@@ -5,7 +5,7 @@ import { MdProgressSpinnerModule, MdFormFieldModule } from '@angular/material';
 import { SignupComponent } from './signup.component';
 import { FormComponent } from '../form/form.component';
 
-fdescribe('SignupComponent', () => {
+describe('SignupComponent', () => {
   let component: SignupComponent;
   let fixture: ComponentFixture<SignupComponent>;
 
